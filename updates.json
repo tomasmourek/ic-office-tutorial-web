@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "ic-office-tutorial-2@ic-office.eu": {
+      "updates": [
+        {
+          "version": "2.56.0",
+          "update_link": "ke-stazeni/ic-office-tutorial-2-v2.56.0-firefox.zip"
+        }
+      ]
+    }
+  }
+}
