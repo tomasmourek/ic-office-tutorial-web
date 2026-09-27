@@ -184,12 +184,22 @@
         "UKÁZKA — sklad"
       ]
     ],
-    "k08": [
-      [
-        "#dl_number",
-        "UKÁZKA-DL-001"
+    "k08": {
+      "pole": [
+        [
+          "#dl_number",
+          "UKÁZKA-DL-001"
+        ]
+      ],
+      "rucne": [
+        [
+          "#war_id"
+        ],
+        [
+          "#frm-addWarehouseDataMore-supplier:has(option:checked:not([value='']):not([value='-1']))"
+        ]
       ]
-    ],
+    },
     "k09": [
       [
         "#name",
@@ -198,6 +208,10 @@
       [
         "#count",
         "5"
+      ],
+      [
+        "#code",
+        "UKAZKA-OLEJ"
       ]
     ],
     "k10": [
@@ -498,7 +512,7 @@
       "minuty": 3,
       "skupina": "Oprava faktury",
       "titulek": "Zrušte špatně vystavenou fakturu",
-      "zadani": "Na faktuře je chyba a musí se vydat znovu. <strong>Najděte ji v přehledu faktur, opište si její číslo a zrušte ji.</strong><br><br>⚠ Pracujete v ostrých datech — zrušte jen fakturu, kterou opravdu zrušit chcete."
+      "zadani": "Na faktuře je chyba a musí se vydat znovu. <strong>Najděte ji v přehledu faktur, opište si její číslo a zrušte ji.</strong><br><br>Pozor, pracujete v ostrých datech — zrušte jen fakturu, kterou opravdu zrušit chcete."
     },
     {
       "id": "cv-faktura-cislo",
@@ -572,7 +586,8 @@
             "/customer/default*"
           ],
           "title": "Nový zákazník, který přijde osobně",
-          "text": "Celý postup od A do Z:<br><br>👤 <strong>klient</strong> → 🚗 <strong>vozidlo</strong> → 🔧 <strong>zakázka</strong> → ✍ <strong>podpis</strong> → 🧾 <strong>faktura a tisk</strong><br><br>Průvodce vždy <strong>vysvítí</strong>, kam kliknout nebo co vyplnit. <span class=\"lg-red\">Červeně</span> povinné, <span class=\"lg-yellow\">žlutě</span> doporučení.",
+          "kratce": "Klient → faktura",
+          "text": "Celý postup od A do Z:<br><br><strong>klient</strong> → <strong>vozidlo</strong> → <strong>zakázka</strong> → <strong>podpis</strong> → <strong>faktura a tisk</strong><br><br>Průvodce vždy <strong>vysvítí</strong>, kam kliknout nebo co vyplnit. <span class=\"lg-red\">Vínově</span> povinné, <span class=\"lg-yellow\">žlutě</span> doporučení.",
           "next": "Začít →"
         },
         {
@@ -616,6 +631,7 @@
             "/record/add-contract*"
           ],
           "title": "Vyplňte údaje klienta — dva způsoby",
+          "kratce": "<strong>IČO</strong> → <strong>Vyplnit</strong>",
           "text": "Dva způsoby:<br>① <strong>FIRMA</strong> — zadejte <strong>IČO</strong> a klikněte <strong>Vyplnit</strong> (doplní se z ARES).<br>② <strong>OSOBA</strong> — vyplňte rovnou <strong>Jméno / Název</strong>.",
           "target": [
             "#ico",
@@ -673,18 +689,17 @@
             "/record/add-contract*"
           ],
           "title": "Telefon a e-mail",
+          "kratce": "<strong>Telefon</strong> · <strong>e-mail</strong> (nepovinné)",
           "text": "Vyplňte <strong>telefon i e-mail</strong> — chodí na ně <strong>zprávy o stavu zakázky</strong> a faktury.<br><br><strong>Povinné to není</strong> — doplnit je jde později na kartě klienta.",
           "target": [
-            "input[placeholder='Telefon']",
-            "input[placeholder^='+']"
+            "input[placeholder='Telefon']"
           ],
           "label": "Telefon",
           "color": "yellow",
           "extras": [
             {
               "target": [
-                "input[placeholder='E-mail 1']",
-                "input[placeholder*='mail']"
+                "input[placeholder='E-mail 1']"
               ],
               "label": "E-mail",
               "color": "yellow"
@@ -704,6 +719,7 @@
             "/record/add-contract*"
           ],
           "title": "Typ klienta",
+          "kratce": "Typ: <strong>Odběratel</strong>",
           "text": "Zkontrolujte <strong>typ klienta</strong>:<br>• <strong>Odběratel</strong> = zákazník servisu (bývá předvyplněno)<br>• <strong>Dodavatel</strong> = od koho odebíráte díly.",
           "target": [
             "input[type='radio'][value='0']"
@@ -748,7 +764,7 @@
             "/customer/default/*"
           ],
           "title": "Karta klienta — přidejte vozidlo",
-          "text": "Klient je založený. 🎉 Klikněte na <strong>Přidat vozidlo</strong>.",
+          "text": "Klient je založený. Klikněte na <strong>Přidat vozidlo</strong>.",
           "target": [
             "a[data-target='#carCreate']",
             "a.carCreate",
@@ -766,19 +782,20 @@
             "/customer/default/*"
           ],
           "title": "Vytvoření nového vozidla",
+          "kratce": "<strong>VIN</strong> · <strong>SPZ</strong>",
           "text": "Opište povinné údaje: <strong>VIN</strong> (17 znaků) a <strong>SPZ</strong>. Zbytek v dalším kroku doplní bezplatný <strong>registr vozidel ČR</strong>.",
           "target": [
             "#car_vin_create",
-            "input[name='vin']",
-            "input[placeholder='VIN *']"
+            "#carCreateForm input[name='vin']",
+            "#carCreateForm input[placeholder='VIN *']"
           ],
           "label": "VIN",
           "extras": [
             {
               "target": [
                 "#frm-createCar-spz",
-                "input[name='spz']",
-                "input[placeholder='SPZ *']"
+                "#carCreateForm input[name='spz']",
+                "#carCreateForm input[placeholder='SPZ *']"
               ],
               "label": "SPZ",
               "color": "red"
@@ -786,8 +803,8 @@
             {
               "target": [
                 "#frm-createCar-odometer",
-                "input[name='odometer']",
-                "input[placeholder='Stav tachometru']"
+                "#carCreateForm input[name='odometer']",
+                "#carCreateForm input[placeholder='Stav tachometru']"
               ],
               "label": "Tachometr (doporučeno)",
               "color": "yellow"
@@ -797,11 +814,11 @@
             "filled": [
               [
                 "#car_vin_create",
-                "input[name='vin']"
+                "#carCreateForm input[name='vin']"
               ],
               [
                 "#frm-createCar-spz",
-                "input[name='spz']"
+                "#carCreateForm input[name='spz']"
               ]
             ]
           },
@@ -816,6 +833,7 @@
             "/customer/default/*"
           ],
           "title": "Načíst vozidlo — registr ČR",
+          "kratce": "<strong>Načíst – registr ČR</strong>",
           "text": "Klikněte na <strong>Načíst vozidlo – registr ČR</strong> — bezplatně doplní značku, model, technické údaje i datum STK.<br><br>Žlutě: placený <strong>celosvětový VIN dekodér</strong>.",
           "target": [
             "#btnRegisterVehicleCreate",
@@ -825,7 +843,7 @@
           "extras": [
             {
               "target": [
-                "a[data-target='#vinDecoderCreateModal']",
+                "#carCreateForm a[data-target='#vinDecoderCreateModal']",
                 "#carCreateForm a[data-target*='vinDecoder']"
               ],
               "label": "VIN dekodér – zpoplatněno",
@@ -843,7 +861,8 @@
             "/customer/default/*"
           ],
           "title": "Uložte vozidlo",
-          "text": "Počkejte na dokončení načtení, doplňte <strong>stav tachometru</strong> a uložte tlačítkem <strong>Vytvořit</strong>.",
+          "kratce": "<strong>Značka/model</strong> → <strong>Vytvořit</strong>",
+          "text": "Až registr dokončí načtení, zkontrolujte povinnou <strong>značku / model</strong>; chybějící údaj doplňte ručně. <strong>Stav tachometru</strong> je doporučený. Uložte tlačítkem <strong>Vytvořit</strong>.",
           "target": [
             "#carCreateForm input[name='create']",
             "input.btn-primary.ajax[value='Vytvořit']",
@@ -936,6 +955,7 @@
             "/record/add-contract*"
           ],
           "title": "Načíst vozidlo — registr ČR",
+          "kratce": "<strong>Načíst vozidlo</strong>",
           "text": "Klikněte na <strong>Načíst vozidlo do zakázky</strong> — bezplatný <strong>registr vozidel ČR</strong> doplní SPZ, technické údaje i datum STK.",
           "target": [
             "#btnRegisterContract",
@@ -956,11 +976,11 @@
             "/record/add-contract*"
           ],
           "title": "Volitelné: technický průkaz a poškození",
+          "kratce": "Volitelné: <strong>VTP</strong> · <strong>poškození</strong>",
           "text": "Počkejte na dokončení načtení registru. Žlutě jsou <strong>volitelná doporučení</strong>:<br>• <strong>Technický průkaz</strong> — další záznamy z velkého technického listu.<br>• <strong>Zakreslit poškození vozidla</strong> — klepnutím označíte poškození a potvrdíte zeleným <strong>Uložit</strong>.",
           "target": [
             "#btnRegisterVTP",
-            "a#btnRegisterVTP",
-            "a.registerCarsModal"
+            "a#btnRegisterVTP"
           ],
           "label": "Technický průkaz",
           "extras": [
@@ -983,6 +1003,7 @@
             "/record/add-contract*"
           ],
           "title": "Popis opravy a tachometr",
+          "kratce": "<strong>Tachometr</strong> · <strong>popis opravy</strong>",
           "text": "Zapište <strong>stav tachometru</strong> a klikněte do pole <strong>Popis objednané opravy</strong> — stačí <strong>vybrat z nabídky</strong> předdefinovaných oprav, nebo napsat vlastní text.",
           "target": [
             "textarea[placeholder='Popis objednané opravy']",
@@ -1029,6 +1050,7 @@
             "/record/add-contract*"
           ],
           "title": "Odhadovaná cena opravy",
+          "kratce": "<strong>Cena</strong> nebo <strong>upřesněna</strong>",
           "text": "Vyplňte <strong>Odhadovanou cenu opravy</strong>. Když cenu nelze určit předem, <strong>zaškrtněte políčko vpravo</strong> (cena bude upřesněna telefonicky / e-mailem).",
           "target": [
             "input[placeholder='Odhadovaná cena opravy']",
@@ -1038,24 +1060,26 @@
           "extras": [
             {
               "target": [
-                "#price_will_specified",
-                "input[name='price_will_specified']"
+                "label[for='price_will_specified']"
               ],
               "label": "Předběžná cena",
               "color": "yellow"
             }
           ],
           "advance": {
-            "filled": [
+            "filledAny": [
               [
                 "input[placeholder='Odhadovaná cena opravy']",
                 "#form_text_12"
+              ],
+              [
+                "#price_will_specified"
               ]
             ]
           },
           "next": "Hotovo →",
           "skip": "Přeskočit →",
-          "gateHint": "Vyplňte cenu — pak se tlačítko odemkne (předtím klidně zaškrtněte políčko)."
+          "gateHint": "Vyplňte cenu, nebo zaškrtněte, že bude upřesněna — pak se tlačítko odemkne."
         },
         {
           "id": "z06",
@@ -1066,6 +1090,7 @@
             "/record/add-contract*"
           ],
           "title": "Doporučení (žlutě)",
+          "kratce": "<strong>Volitelné</strong> (žlutě)",
           "text": "<strong>Volitelná doporučení</strong> (žlutě):<br>• <strong>Datum konce STK</strong> — žluté = končí ten den, červené = propadlá.<br>• <strong>SMS / e-mail</strong> — automatické zprávy o stavu zapnete v <strong>Nastavení</strong>.<br>• <strong>Měna zakázky</strong> — CZK nebo EUR.<br>• <strong>Výdej ze skladu</strong> — doporučeno: materiál pak vybíráte našeptávačem ze skladu.",
           "target": [
             "#form_date_21",
@@ -1100,6 +1125,7 @@
             "/record/add-contract*"
           ],
           "title": "Přidejte materiál",
+          "kratce": "<strong>Přidat materiál</strong>",
           "text": "Klikněte <strong>Přidat materiál</strong>. Do <strong>Název</strong> napište <strong>2–3 písmena</strong> a vyberte díl z nabídky. Doplňte <strong>počet</strong>, <strong>cenu</strong> a <strong>slevu/marži</strong>.",
           "target": [
             "#addItem",
@@ -1177,6 +1203,7 @@
             "/record/add-contract*"
           ],
           "title": "Přidejte práci",
+          "kratce": "<strong>Přidat práci</strong>",
           "text": "Klikněte <strong>Přidat práci</strong>. Do <strong>Název</strong> napište pár písmen a vyberte z <strong>předdefinovaných prací</strong>. Zadejte <strong>počet</strong>, <strong>jednotku</strong> a zkontrolujte <strong>cenu</strong>.",
           "target": [
             "#addItem1",
@@ -1287,6 +1314,7 @@
             "/record/add-contract*"
           ],
           "title": "Doplňující údaje (volitelné)",
+          "kratce": "<strong>Doplňující údaje</strong> (volitelné)",
           "text": "Volitelně vyplňte <strong>doplňující údaje</strong> (stav paliva, <strong>upozornění</strong>, <strong>souhlas s opravou</strong>, <strong>předávací protokol</strong>…) — <strong>tisknou se na zakázkovém listu</strong>.",
           "target": [
             "table:has(#int_note)",
@@ -1320,11 +1348,11 @@
           ],
           "noPrev": true,
           "noHealth": true,
-          "title": "Zakázka vytvořena 🎉",
-          "text": "Zakázka je v <strong>kartě klienta</strong>. Ikony u řádku:<br>👁 <strong>Náhled</strong> zakázkového listu<br>📷 <strong>Fotky a dokumenty</strong><br>✍ <strong>Podpis</strong> zakázkového listu<br>🌐 <strong>Odkaz s průběhem opravy, e-mail, SMS</strong>",
+          "title": "Zakázka vytvořena",
+          "kratce": "<strong>Zakázka vytvořena</strong>",
+          "text": "Zakázka je v <strong>kartě klienta</strong>. Ikony u řádku:<br>• <strong>Náhled</strong> zakázkového listu<br>• <strong>Fotky a dokumenty</strong><br>• <strong>Podpis</strong> zakázkového listu<br>• <strong>Odkaz s průběhem opravy, e-mail, SMS</strong>",
           "target": [
-            "tr:has(a.mmore)",
-            "#zakazky table tbody tr"
+            "tr:has(a.mmore)"
           ],
           "label": "Vaše zakázka",
           "extras": [
@@ -1402,10 +1430,7 @@
           "title": "Zákazník podepíše zakázku",
           "text": "Zákazník se podepíše do podpisového pole. Potom klikněte na <strong>Uložit podpis</strong>.",
           "target": [
-            "#save",
-            "button#save",
-            "input#save",
-            "#save-signature"
+            "#save"
           ],
           "label": "Uložit podpis",
           "extras": [
@@ -1418,8 +1443,7 @@
             },
             {
               "target": [
-                "#clear",
-                "#clear-signature"
+                "#clear"
               ],
               "label": "Vymazat a podepsat znovu",
               "color": "yellow"
@@ -1434,6 +1458,7 @@
           "url": [
             "/customer/signature/*"
           ],
+          "noHealth": true,
           "title": "Zpět na kartu klienta",
           "text": "Vraťte se přes <strong>Zpět na klienta</strong> — průvodce naváže vytvořením faktury.",
           "target": [
@@ -1453,6 +1478,7 @@
           ],
           "noHealth": true,
           "title": "Otevřete fakturaci",
+          "kratce": "<strong>Menu zakázky</strong> → <strong>Faktury</strong>",
           "text": "Klikněte na <strong>název zakázky</strong> — otevře se její <strong>Menu</strong>.",
           "target": [
             ".custzak.pop2",
@@ -1488,6 +1514,7 @@
             "/customer/default/*"
           ],
           "title": "Vytvořte fakturu",
+          "kratce": "<strong>Vytvořit fakturu</strong>",
           "text": "V okně fakturace:<br>1) klikněte na <strong>Vytvořit fakturu</strong> v první řadě,<br>2) zkontrolujte <strong>typ platby</strong>, <strong>datum vystavení</strong>, <strong>DUZP</strong> a <strong>splatnost</strong>,<br>3) potvrďte tlačítkem <strong>Vytvořit</strong>.",
           "target": [
             "#invoiceModal.in .modal-content",
@@ -1531,8 +1558,9 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
-          "text": "Prošli jste celý postup:<br><br>👤 klient → 🚗 vozidlo → 🔧 zakázka → ✍ podpis → 🧾 faktura → 🖨 tisk / PDF<br><br>Průvodce najdete kdykoli pod tlačítkem <strong>?</strong> vpravo dole.",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
+          "text": "Prošli jste celý postup:<br><br>klient → vozidlo → zakázka → podpis → faktura → tisk / PDF<br><br>Průvodce najdete kdykoli pod tlačítkem <strong>Průvodce</strong> vpravo dole.",
           "next": "Zavřít ✓"
         }
       ]
@@ -1558,7 +1586,8 @@
             "/customer/default*"
           ],
           "title": "Zákazník volá — zapište požadavek",
-          "text": "Telefonická objednávka bez okamžitého zakládání klienta:<br><br>📅 <strong>požadavek do kalendáře</strong> → 📋 <strong>zakázka z požadavku</strong> → 🧾 <strong>faktura</strong>",
+          "kratce": "Požadavek → zakázka → faktura",
+          "text": "Telefonickou objednávku zapište ke konkrétnímu zákazníkovi. Nového zákazníka nejprve přidejte tlačítkem <strong>Nový zákazník</strong> v kalendáři:<br><br><strong>požadavek do kalendáře</strong> → <strong>zakázka z požadavku</strong> → <strong>faktura</strong>",
           "next": "Začít →"
         },
         {
@@ -1591,7 +1620,8 @@
             "/calendar*"
           ],
           "title": "Zapište požadavek",
-          "text": "V panelu <strong>Přidání požadavku</strong> vyplňte <strong>Název</strong> (např. „Kovářík — výměna brzd“) a do <strong>Popisu</strong> co a na kdy.",
+          "kratce": "<strong>Zákazník</strong> · <strong>Název</strong> · <strong>Popis</strong>",
+          "text": "V panelu <strong>Přidání požadavku</strong> nejprve vyberte <strong>Zákazníka</strong>. Pokud chybí, použijte <strong>Nový zákazník</strong>. Potom vyplňte <strong>Název</strong> (např. „Kovářík — výměna brzd“) a do <strong>Popisu</strong> co a na kdy.",
           "target": [
             "#frm-requestForm-title",
             "input[name='title']"
@@ -1600,24 +1630,40 @@
           "extras": [
             {
               "target": [
-                "#requestDesc",
-                "textarea[name='description']"
+                "#customers + .select2-container"
+              ],
+              "label": "Zákazník",
+              "color": "red"
+            },
+            {
+              "target": [
+                "#frm-requestForm a.customerCreate"
+              ],
+              "label": "Nový zákazník",
+              "color": "yellow"
+            },
+            {
+              "target": [
+                "#requestDesc"
               ],
               "label": "Popis požadavku",
               "color": "red"
             }
           ],
           "advance": {
-            "filledAny": [
+            "filled": [
               [
                 "#frm-requestForm-title",
                 "input[name='title']"
+              ],
+              [
+                "#customers:has(option:checked:not([value='']):not([value='-1']))"
               ]
             ]
           },
           "next": "Pokračovat →",
           "skip": "Přeskočit →",
-          "gateHint": "Vyplňte název požadavku — pak lze pokračovat.",
+          "gateHint": "Vyberte zákazníka a vyplňte název požadavku — pak lze pokračovat.",
           "help": "<p>Do kalendáře lze přidat i <strong>událost</strong>: klikněte na den/hodinu přímo v kalendáři, vyplňte název, popis, začátek a konec (případně celodenní) a barvu → <strong>Přidat</strong>. Událost pak lze myší přesouvat a natahovat.</p>",
           "video": "/videos/calendar_add_request.mp4"
         },
@@ -1635,60 +1681,81 @@
             "input[name='send']"
           ],
           "label": "Přidat požadavek",
+          "advance": {
+            "filled": [
+              [
+                "#frm-requestForm-title"
+              ],
+              [
+                "#customers:has(option:checked:not([value='']):not([value='-1']))"
+              ]
+            ]
+          },
+          "gateHint": "Vyberte zákazníka a vyplňte název požadavku.",
           "next": false
         },
         {
           "id": "t05",
-          "manual": "contract_create",
-          "kind": "click",
+          "manual": "calendar_add_event",
+          "kind": "note",
           "url": [
-            "*"
+            "/calendar*"
           ],
-          "urlNot": [
-            "/requests*",
-            "/record/add-contract*",
-            "/customer/default*"
-          ],
-          "title": "Otevřete Požadavky",
-          "text": "Až zákazník dorazí, otevřete v horním menu <strong>Požadavky</strong>.",
+          "title": "Požadavek je v kalendáři",
+          "kratce": "<strong>Požadavek v kalendáři</strong>",
+          "text": "Uložený požadavek se zobrazí v <strong>kalendáři</strong> v den uložení. Na domluvený termín ho přesunete <strong>tažením myší</strong>.",
           "target": [
-            "a[href='/requests/']"
+            "#calendar .fc-view-container"
           ],
-          "label": "Požadavky",
-          "next": false
+          "label": "Kalendář",
+          "color": "yellow",
+          "next": "Další →"
         },
         {
           "id": "t06",
-          "manual": "contract_create",
-          "kind": "note",
-          "color": "yellow",
+          "manual": "calendar_add_event",
+          "kind": "click",
           "url": [
-            "/requests*"
+            "/calendar*"
           ],
-          "title": "Evidence požadavků",
-          "text": "Přehled požadavků a jejich <strong>stavů</strong>. Žlutě: <strong>filtr podle stavu</strong>.",
+          "title": "Otevřete požadavek",
+          "kratce": "Klikněte na <strong>požadavek</strong>",
+          "text": "Až zákazník dorazí, klikněte v kalendáři na jeho <strong>požadavek</strong> — otevře se okno s detailem.",
           "target": [
-            ".bootstrap-select button.dropdown-toggle",
-            ".bootstrap-select .dropdown-toggle"
+            "#calendar .fc-view-container"
           ],
-          "label": "Filtr podle stavu",
-          "next": "Další →"
+          "label": "Klikněte na požadavek",
+          "advance": {
+            "visible": [
+              "#modalCreateEvent.in #eventCreateContractBtn"
+            ]
+          },
+          "next": false
         },
         {
           "id": "t07",
           "manual": "contract_create",
           "kind": "click",
           "url": [
-            "/requests*"
+            "/calendar*"
           ],
           "noHealth": true,
           "title": "Vytvořte zakázku z požadavku",
-          "text": "U požadavku klikněte na <strong>Vytvořit zakázku</strong>.",
+          "kratce": "<strong>Vytvořit zakázku</strong>",
+          "text": "V okně klikněte na <strong>Vytvořit zakázku</strong> — název a popis se převezmou z požadavku.",
           "target": [
-            "a.createContract",
-            "a.btn-primary.createContract"
+            "#eventCreateContractBtn"
           ],
           "label": "Vytvořit zakázku",
+          "extras": [
+            {
+              "target": [
+                "#eventOpenContractBtn"
+              ],
+              "label": "Otevřít zakázku",
+              "color": "yellow"
+            }
+          ],
           "next": false
         },
         {
@@ -1726,6 +1793,7 @@
             "/record/add-contract*"
           ],
           "title": "Načíst vozidlo — registr ČR",
+          "kratce": "<strong>Načíst vozidlo</strong>",
           "text": "Klikněte na <strong>Načíst vozidlo do zakázky</strong> — bezplatný <strong>registr vozidel ČR</strong> doplní SPZ, technické údaje i datum STK.",
           "target": [
             "#btnRegisterContract",
@@ -1746,11 +1814,11 @@
             "/record/add-contract*"
           ],
           "title": "Volitelné: technický průkaz a poškození",
+          "kratce": "Volitelné: <strong>VTP</strong> · <strong>poškození</strong>",
           "text": "Počkejte na dokončení načtení registru. Žlutě jsou <strong>volitelná doporučení</strong>:<br>• <strong>Technický průkaz</strong> — další záznamy z velkého technického listu.<br>• <strong>Zakreslit poškození vozidla</strong> — klepnutím označíte poškození a potvrdíte zeleným <strong>Uložit</strong>.",
           "target": [
             "#btnRegisterVTP",
-            "a#btnRegisterVTP",
-            "a.registerCarsModal"
+            "a#btnRegisterVTP"
           ],
           "label": "Technický průkaz",
           "extras": [
@@ -1773,6 +1841,7 @@
             "/record/add-contract*"
           ],
           "title": "Popis opravy a tachometr",
+          "kratce": "<strong>Tachometr</strong> · <strong>popis opravy</strong>",
           "text": "Zapište <strong>stav tachometru</strong> a klikněte do pole <strong>Popis objednané opravy</strong> — stačí <strong>vybrat z nabídky</strong> předdefinovaných oprav, nebo napsat vlastní text.",
           "target": [
             "textarea[placeholder='Popis objednané opravy']",
@@ -1819,6 +1888,7 @@
             "/record/add-contract*"
           ],
           "title": "Odhadovaná cena opravy",
+          "kratce": "<strong>Cena</strong> nebo <strong>upřesněna</strong>",
           "text": "Vyplňte <strong>Odhadovanou cenu opravy</strong>. Když cenu nelze určit předem, <strong>zaškrtněte políčko vpravo</strong> (cena bude upřesněna telefonicky / e-mailem).",
           "target": [
             "input[placeholder='Odhadovaná cena opravy']",
@@ -1828,24 +1898,26 @@
           "extras": [
             {
               "target": [
-                "#price_will_specified",
-                "input[name='price_will_specified']"
+                "label[for='price_will_specified']"
               ],
               "label": "Předběžná cena",
               "color": "yellow"
             }
           ],
           "advance": {
-            "filled": [
+            "filledAny": [
               [
                 "input[placeholder='Odhadovaná cena opravy']",
                 "#form_text_12"
+              ],
+              [
+                "#price_will_specified"
               ]
             ]
           },
           "next": "Hotovo →",
           "skip": "Přeskočit →",
-          "gateHint": "Vyplňte cenu — pak se tlačítko odemkne (předtím klidně zaškrtněte políčko)."
+          "gateHint": "Vyplňte cenu, nebo zaškrtněte, že bude upřesněna — pak se tlačítko odemkne."
         },
         {
           "id": "z06",
@@ -1856,6 +1928,7 @@
             "/record/add-contract*"
           ],
           "title": "Doporučení (žlutě)",
+          "kratce": "<strong>Volitelné</strong> (žlutě)",
           "text": "<strong>Volitelná doporučení</strong> (žlutě):<br>• <strong>Datum konce STK</strong> — žluté = končí ten den, červené = propadlá.<br>• <strong>SMS / e-mail</strong> — automatické zprávy o stavu zapnete v <strong>Nastavení</strong>.<br>• <strong>Měna zakázky</strong> — CZK nebo EUR.<br>• <strong>Výdej ze skladu</strong> — doporučeno: materiál pak vybíráte našeptávačem ze skladu.",
           "target": [
             "#form_date_21",
@@ -1890,6 +1963,7 @@
             "/record/add-contract*"
           ],
           "title": "Přidejte materiál",
+          "kratce": "<strong>Přidat materiál</strong>",
           "text": "Klikněte <strong>Přidat materiál</strong>. Do <strong>Název</strong> napište <strong>2–3 písmena</strong> a vyberte díl z nabídky. Doplňte <strong>počet</strong>, <strong>cenu</strong> a <strong>slevu/marži</strong>.",
           "target": [
             "#addItem",
@@ -1967,6 +2041,7 @@
             "/record/add-contract*"
           ],
           "title": "Přidejte práci",
+          "kratce": "<strong>Přidat práci</strong>",
           "text": "Klikněte <strong>Přidat práci</strong>. Do <strong>Název</strong> napište pár písmen a vyberte z <strong>předdefinovaných prací</strong>. Zadejte <strong>počet</strong>, <strong>jednotku</strong> a zkontrolujte <strong>cenu</strong>.",
           "target": [
             "#addItem1",
@@ -2077,6 +2152,7 @@
             "/record/add-contract*"
           ],
           "title": "Doplňující údaje (volitelné)",
+          "kratce": "<strong>Doplňující údaje</strong> (volitelné)",
           "text": "Volitelně vyplňte <strong>doplňující údaje</strong> (stav paliva, <strong>upozornění</strong>, <strong>souhlas s opravou</strong>, <strong>předávací protokol</strong>…) — <strong>tisknou se na zakázkovém listu</strong>.",
           "target": [
             "table:has(#int_note)",
@@ -2110,11 +2186,11 @@
           ],
           "noPrev": true,
           "noHealth": true,
-          "title": "Zakázka vytvořena 🎉",
-          "text": "Zakázka je v <strong>kartě klienta</strong>. Ikony u řádku:<br>👁 <strong>Náhled</strong> zakázkového listu<br>📷 <strong>Fotky a dokumenty</strong><br>✍ <strong>Podpis</strong> zakázkového listu<br>🌐 <strong>Odkaz s průběhem opravy, e-mail, SMS</strong>",
+          "title": "Zakázka vytvořena",
+          "kratce": "<strong>Zakázka vytvořena</strong>",
+          "text": "Zakázka je v <strong>kartě klienta</strong>. Ikony u řádku:<br>• <strong>Náhled</strong> zakázkového listu<br>• <strong>Fotky a dokumenty</strong><br>• <strong>Podpis</strong> zakázkového listu<br>• <strong>Odkaz s průběhem opravy, e-mail, SMS</strong>",
           "target": [
-            "tr:has(a.mmore)",
-            "#zakazky table tbody tr"
+            "tr:has(a.mmore)"
           ],
           "label": "Vaše zakázka",
           "extras": [
@@ -2192,10 +2268,7 @@
           "title": "Zákazník podepíše zakázku",
           "text": "Zákazník se podepíše do podpisového pole. Potom klikněte na <strong>Uložit podpis</strong>.",
           "target": [
-            "#save",
-            "button#save",
-            "input#save",
-            "#save-signature"
+            "#save"
           ],
           "label": "Uložit podpis",
           "extras": [
@@ -2208,8 +2281,7 @@
             },
             {
               "target": [
-                "#clear",
-                "#clear-signature"
+                "#clear"
               ],
               "label": "Vymazat a podepsat znovu",
               "color": "yellow"
@@ -2224,6 +2296,7 @@
           "url": [
             "/customer/signature/*"
           ],
+          "noHealth": true,
           "title": "Zpět na kartu klienta",
           "text": "Vraťte se přes <strong>Zpět na klienta</strong> — průvodce naváže vytvořením faktury.",
           "target": [
@@ -2243,6 +2316,7 @@
           ],
           "noHealth": true,
           "title": "Otevřete fakturaci",
+          "kratce": "<strong>Menu zakázky</strong> → <strong>Faktury</strong>",
           "text": "Klikněte na <strong>název zakázky</strong> — otevře se její <strong>Menu</strong>.",
           "target": [
             ".custzak.pop2",
@@ -2278,6 +2352,7 @@
             "/customer/default/*"
           ],
           "title": "Vytvořte fakturu",
+          "kratce": "<strong>Vytvořit fakturu</strong>",
           "text": "V okně fakturace:<br>1) klikněte na <strong>Vytvořit fakturu</strong> v první řadě,<br>2) zkontrolujte <strong>typ platby</strong>, <strong>datum vystavení</strong>, <strong>DUZP</strong> a <strong>splatnost</strong>,<br>3) potvrďte tlačítkem <strong>Vytvořit</strong>.",
           "target": [
             "#invoiceModal.in .modal-content",
@@ -2321,8 +2396,9 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
-          "text": "Prošli jste postup <strong>telefonické objednávky</strong>:<br><br>📅 požadavek v kalendáři → 📋 zakázka z požadavku → 🧾 faktura<br><br>Průvodce najdete kdykoli pod tlačítkem <strong>?</strong> vpravo dole.",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
+          "text": "Prošli jste postup <strong>telefonické objednávky</strong>:<br><br>požadavek v kalendáři → zakázka z požadavku → faktura<br><br>Průvodce najdete kdykoli pod tlačítkem <strong>Průvodce</strong> vpravo dole.",
           "next": "Zavřít ✓"
         }
       ]
@@ -2346,7 +2422,8 @@
             "/inter-cars*"
           ],
           "title": "Objednání dílů z IC katalogu",
-          "text": "Proklik <strong>přímo do katalogu Inter Cars</strong> pro identifikované vozidlo.<br><br>⚠️ Potřeba: <strong>kredit</strong> pro VIN dekodér (placená služba) a <strong>přístup do API katalogu</strong> (zřizuje Inter Cars, trvá pár dní).<br><br>Tip: ze zakázky vede tlačítko <strong>Objednat díly IC</strong>.",
+          "kratce": "<strong>Díly z katalogu</strong>",
+          "text": "Proklik <strong>přímo do katalogu Inter Cars</strong> pro identifikované vozidlo.<br><br>Potřeba: <strong>kredit</strong> pro VIN dekodér (placená služba) a <strong>přístup do API katalogu</strong> (zřizuje Inter Cars, trvá pár dní).<br><br>Tip: ze zakázky vede tlačítko <strong>Objednat díly IC</strong>.",
           "next": "Začít →"
         },
         {
@@ -2360,6 +2437,7 @@
             "/inter-cars*"
           ],
           "title": "Otevřete Inter Cars",
+          "kratce": "<strong>Inter Cars</strong> → <strong>Objednání</strong>",
           "text": "Najeďte v horním menu na <strong>Inter Cars</strong> a klikněte na <strong>Objednání dílů</strong>.",
           "target": [
             "li:has(> ul a[href='/inter-cars/autoparts']) > a",
@@ -2447,6 +2525,7 @@
             "/inter-cars/autoparts*"
           ],
           "title": "Otevřete katalog",
+          "kratce": "<strong>Otevřít katalog</strong>",
           "text": "Po identifikaci se <strong>zpřístupní</strong> tlačítko <strong>Otevřít Inter Cars katalog</strong> — otevře katalog rovnou pro dané vozidlo.<br><br>Žlutě: <strong>Vymazat identifikaci</strong> a zkusit znovu.",
           "target": [
             "#urlCatalogVIN",
@@ -2470,7 +2549,8 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
           "text": "Umíte se prokliknout z IC Office <strong>přímo do katalogu Inter Cars</strong> pro konkrétní vozidlo.<br><br>Tip: ze zakázky je to ještě rychlejší — menu zakázky → <strong>Objednat díly IC</strong>.",
           "next": "Zavřít ✓"
         }
@@ -2495,7 +2575,8 @@
             "/cash-box*"
           ],
           "title": "Prodej bez zakázky",
-          "text": "Prodej zboží bez zakládání zakázky:<br><br>🛒 <strong>prodej ze skladu</strong> → 💰 <strong>pokladní kniha</strong> a doklady",
+          "kratce": "Prodej → pokladna",
+          "text": "Prodej zboží bez zakládání zakázky:<br><br><strong>prodej ze skladu</strong> → <strong>pokladní kniha</strong> a doklady",
           "next": "Začít →"
         },
         {
@@ -2526,6 +2607,7 @@
             "/sales/add-sale-goods*"
           ],
           "title": "Evidence prodeje",
+          "kratce": "<strong>Přidat prodej</strong>",
           "text": "Evidence prodejů — filtr <strong>obdobím</strong> a <strong>způsobem platby</strong>. Nový založíte tlačítkem <strong>Přidat prodej</strong>.",
           "target": [
             "a[href='/sales/add-sale-goods']"
@@ -2581,6 +2663,7 @@
             "/sales/add-sale-goods*"
           ],
           "title": "Přidejte zboží ze skladu",
+          "kratce": "<strong>Přidat materiál</strong> · <strong>počet</strong>",
           "text": "Klikněte <strong>Přidat materiál</strong>. Do <strong>Název</strong> napište <strong>2–3 písmena</strong> a vyberte ze skladu — cena se doplní sama. Zadejte <strong>počet</strong>.<br><br>Se čtečkou stačí načíst <strong>čárový kód</strong>.",
           "target": [
             "#addItem"
@@ -2702,7 +2785,8 @@
           ],
           "noHealth": true,
           "title": "Prodej je zapsaný",
-          "text": "Prodej je v evidenci. Ikona <strong>Faktura</strong> u řádku vystaví doklad na firmu; platba hotově se promítne do <strong>pokladní knihy</strong>.",
+          "kratce": "<strong>Faktura</strong> u řádku",
+          "text": "Prodej je v evidenci. Modul slouží k prodeji <strong>na fakturu s platbou převodem</strong>; doklad vystavíte ikonou <strong>Faktura</strong> u řádku. Hotovostní prodej patří do samostatného modulu <strong>Pokladna</strong>.",
           "target": [
             "a.saleInvoiceModal"
           ],
@@ -2738,6 +2822,7 @@
             "/cash-box/add-item-plus*"
           ],
           "title": "Pokladní kniha",
+          "kratce": "<strong>Pokladní kniha</strong>",
           "text": "Pohyby hotovosti a zůstatek; přepínáte <strong>denní / měsíční</strong> pohled a <strong>období</strong>.<br>• <strong>Vlastní vklad</strong> — hotovost do pokladny<br>• <strong>Vlastní výběr</strong> — hotovost z pokladny<br>• <strong>Příjem do pokladny</strong> — položkový příjem",
           "target": [
             "#modeSelect"
@@ -2796,6 +2881,7 @@
             "/cash-box/deposit*"
           ],
           "title": "Číslo dokladu a částka",
+          "kratce": "<strong>Číslo dokladu</strong> · <strong>částka</strong>",
           "text": "Vyplňte <strong>číslo dokladu</strong>, <strong>částku</strong> a do <strong>popisu</strong> důvod. Potom uložte.",
           "target": [
             "#frm-depositForm-castka"
@@ -2852,17 +2938,25 @@
           ],
           "noHealth": true,
           "title": "Tisk a export pro účetní",
-          "text": "Pokladní knihu vytisknete nebo uložíte do <strong>PDF</strong>; účetní ocení <strong>Excel</strong>. K pohybům lze vytvořit <strong>pokladní doklad</strong>.",
+          "kratce": "<strong>Tisk</strong> · <strong>PDF</strong> · <strong>Excel</strong>",
+          "text": "Pokladní knihu vytisknete nebo uložíte do <strong>PDF</strong>; účetní ocení <strong>Excel</strong>. Zvýrazněné exporty patří k prvnímu zobrazenému období v přehledu. K pohybům lze vytvořit <strong>pokladní doklad</strong>.",
           "target": [
-            "a[href^='/cash-box/cash-box-export-excel/']"
+            "#datatable_coffers_all tbody tr:first-child a[href^='/cash-box/cash-box-export-excel/']"
           ],
           "label": "Export do Excelu",
           "extras": [
             {
               "target": [
-                "a[href^='/cash-box/cash-box-prew/']"
+                "#datatable_coffers_all tbody tr:first-child a[href^='/cash-box/cash-box-prew/']:not([href*='typ=pdf'])"
               ],
-              "label": "Tisk / PDF",
+              "label": "Tisk",
+              "color": "yellow"
+            },
+            {
+              "target": [
+                "#datatable_coffers_all tbody tr:first-child a[href^='/cash-box/cash-box-prew/'][href*='typ=pdf']"
+              ],
+              "label": "PDF",
               "color": "yellow"
             }
           ],
@@ -2874,8 +2968,9 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
-          "text": "Umíte <strong>prodat zboží ze skladu</strong> bez zakládání zakázky a <strong>vést pokladní knihu</strong>.<br><br>🛒 prodej → 💰 pokladna → 📄 doklad nebo faktura → 📊 export pro účetní.",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
+          "text": "Umíte <strong>prodat zboží ze skladu</strong> bez zakládání zakázky a <strong>vést pokladní knihu</strong>.<br><br>prodej → pokladna → doklad nebo faktura → export pro účetní.",
           "next": "Zavřít ✓"
         }
       ]
@@ -2898,7 +2993,8 @@
             "/warehouse*"
           ],
           "title": "Sklady — k čemu jsou",
-          "text": "Se skladem vybíráte materiál do zakázky <strong>našeptávačem</strong> — včetně ceny a počtu kusů.<br><br>🏬 <strong>založení skladu</strong> → 📦 <strong>naskladnění podle dodacího listu</strong>",
+          "kratce": "Sklad → naskladnění",
+          "text": "Se skladem vybíráte materiál do zakázky <strong>našeptávačem</strong> — včetně ceny a počtu kusů.<br><br><strong>založení skladu</strong> → <strong>naskladnění podle dodacího listu</strong>",
           "next": "Začít →"
         },
         {
@@ -2913,13 +3009,12 @@
           "title": "Otevřete Sklady → Zboží",
           "text": "Najeďte v horním menu na <strong>Sklady</strong> a klikněte na <strong>Zboží</strong>.",
           "target": [
-            "li:has(> ul a[href='/warehouse/goods']) > a",
-            "a[href='/warehouse/goods']"
+            "#left-panel li:has(> ul a[href='/warehouse/goods']) > a"
           ],
           "label": "Sklady",
           "then": {
             "target": [
-              "a[href='/warehouse/goods']"
+              "#left-panel a[href='/warehouse/goods']"
             ],
             "label": "Zboží",
             "text": "Klikněte na <strong>Zboží</strong>."
@@ -2933,6 +3028,7 @@
             "/warehouse/goods*"
           ],
           "title": "Přidejte sklad",
+          "kratce": "<strong>Přidat sklad</strong>",
           "text": "Nový sklad založíte tlačítkem <strong>Přidat sklad</strong>.<br><br>Žlutě: <strong>Přidat zboží</strong> (příjem podle dodacího listu) a <strong>Všechno zboží</strong> (hledání napříč sklady).",
           "target": [
             "a[href='/warehouse/add-warehouse']"
@@ -2968,6 +3064,7 @@
             "/warehouse/add-warehouse-data*"
           ],
           "title": "Pojmenujte sklad",
+          "kratce": "<strong>Název skladu</strong>",
           "text": "Vyplňte <strong>Název skladu</strong> (např. „Dílna“). Volitelně <strong>Místo</strong> a <strong>Popis</strong>.",
           "target": [
             "#frm-addWarehouseForm-jmeno",
@@ -3006,6 +3103,7 @@
             "/warehouse/add-warehouse-data*"
           ],
           "title": "DPH a měna skladu",
+          "kratce": "<strong>DPH</strong> · <strong>měna</strong>",
           "text": "Zkontrolujte <strong>DPH</strong> a <strong>měnu skladu</strong> — platí pro celý sklad. Pro nákupy v eurech se vyplatí <strong>samostatný sklad v EUR</strong>.",
           "target": [
             "#frm-addWarehouseForm-dph",
@@ -3049,6 +3147,7 @@
             "/warehouse/goods*"
           ],
           "title": "Naskladnění podle dodacího listu",
+          "kratce": "<strong>Přidat zboží</strong>",
           "text": "Klikněte na <strong>Přidat zboží</strong> — naskladňuje se podle <strong>dodacího listu</strong>.",
           "target": [
             "a[href='/warehouse/add-warehouse-data-more']"
@@ -3063,12 +3162,20 @@
             "/warehouse/add-warehouse-data-more*"
           ],
           "title": "Dodací list a sklad",
-          "text": "Zapište <strong>číslo dodacího listu</strong>, zkontrolujte <strong>datum přijetí</strong> a <strong>vyberte sklad</strong>.",
+          "kratce": "<strong>Dodací list</strong> · <strong>dodavatel</strong>",
+          "text": "Zapište <strong>číslo dodacího listu</strong>, zkontrolujte <strong>datum přijetí</strong> a <strong>vyberte sklad i dodavatele</strong>. Chybějícího dodavatele nejprve založte mezi klienty s typem <strong>Dodavatel</strong>.",
           "target": [
             "#dl_number"
           ],
           "label": "Číslo dodacího listu",
           "extras": [
+            {
+              "target": [
+                "#frm-addWarehouseDataMore-supplier + .select2-container"
+              ],
+              "label": "Dodavatel",
+              "color": "red"
+            },
             {
               "target": [
                 "#war_id"
@@ -3088,12 +3195,18 @@
             "filled": [
               [
                 "#dl_number"
+              ],
+              [
+                "#war_id"
+              ],
+              [
+                "#frm-addWarehouseDataMore-supplier:has(option:checked:not([value='']):not([value='-1']))"
               ]
             ]
           },
           "next": "Pokračovat →",
           "skip": "Přeskočit →",
-          "gateHint": "Vyplňte číslo dodacího listu — pak lze pokračovat."
+          "gateHint": "Vyplňte číslo dodacího listu a vyberte sklad i dodavatele."
         },
         {
           "id": "k09",
@@ -3102,7 +3215,8 @@
             "/warehouse/add-warehouse-data-more*"
           ],
           "title": "Položka zboží",
-          "text": "Hlavní je <strong>Název</strong> a <strong>počet</strong>.<br>• <strong>Kód</strong> — vaše označení pro našeptávač v zakázce<br>• <strong>Výrobní</strong> a <strong>čárový kód</strong> — volitelné",
+          "kratce": "<strong>Název</strong> · <strong>počet</strong> · <strong>kód</strong>",
+          "text": "Vyplňte <strong>Název</strong>, <strong>počet</strong> a povinný <strong>kód zboží</strong>.<br>• <strong>Kód</strong> — vaše označení pro našeptávač v zakázce<br>• <strong>Výrobní</strong> a <strong>čárový kód</strong> — volitelné",
           "target": [
             "#name"
           ],
@@ -3120,7 +3234,7 @@
                 "#code"
               ],
               "label": "Váš kód",
-              "color": "yellow"
+              "color": "red"
             },
             {
               "target": [
@@ -3137,11 +3251,14 @@
               ],
               [
                 "#count"
+              ],
+              [
+                "#code"
               ]
             ]
           },
           "next": "Pokračovat →",
-          "gateHint": "Vyplňte název a počet — pak lze pokračovat."
+          "gateHint": "Vyplňte název, počet a kód zboží — pak lze pokračovat."
         },
         {
           "id": "k10",
@@ -3150,6 +3267,7 @@
             "/warehouse/add-warehouse-data-more*"
           ],
           "title": "Ceny a marže",
+          "kratce": "<strong>Nákupní cena</strong> · <strong>marže</strong>",
           "text": "Zadejte <strong>nákupní cenu</strong>. <strong>Prodejní cenu</strong> vyplňte, nebo zvolte <strong>marži</strong> a klikněte <strong>Přepočítat</strong>. Zkontrolujte <strong>DPH</strong> a <strong>jednotku</strong>.",
           "target": [
             "input[name='items[0][price_nc]']"
@@ -3190,7 +3308,8 @@
               [
                 "input[name='items[0][price_nc]']"
               ]
-            ]
+            ],
+            "nenulove": true
           },
           "next": "Pokračovat →",
           "skip": "Přeskočit →",
@@ -3204,6 +3323,7 @@
             "/warehouse/add-warehouse-data-more*"
           ],
           "title": "Víc položek najednou",
+          "kratce": "<strong>Přidat</strong> · <strong>Přepočítat</strong>",
           "text": "Tlačítko <strong>Přidat</strong> přidá další řádek zboží. <strong>Přepočítat</strong> dopočítá prodejní ceny.<br><br>Žlutě: <strong>minimální množství</strong> — při poklesu pod něj IC Office upozorní.",
           "target": [
             "button[name='items[multiplier_creator]']"
@@ -3240,6 +3360,29 @@
             "input[value='Naskladnit']"
           ],
           "label": "Naskladnit",
+          "advance": {
+            "filled": [
+              [
+                "#dl_number"
+              ],
+              [
+                "#war_id"
+              ],
+              [
+                "#frm-addWarehouseDataMore-supplier:has(option:checked:not([value='']):not([value='-1']))"
+              ],
+              [
+                "#name"
+              ],
+              [
+                "#count"
+              ],
+              [
+                "#code"
+              ]
+            ]
+          },
+          "gateHint": "Před naskladněním doplňte dodací list, sklad, dodavatele a název, počet i kód zboží.",
           "next": false
         },
         {
@@ -3248,7 +3391,8 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
           "text": "Umíte <strong>založit sklad</strong> a <strong>naskladnit zboží</strong>.<br><br>V zakázce teď u <strong>Přidat materiál</strong> stačí pár písmen a díl vyberete ze skladu.<br><br>Tip: <strong>dodací list Inter Cars</strong> jde naskladnit hromadně importem.",
           "next": "Zavřít ✓"
         }
@@ -3273,6 +3417,7 @@
             "/vin-decoder*"
           ],
           "title": "VIN dekodér — reporty o vozidle",
+          "kratce": "Reporty podle VIN",
           "text": "<strong>Placené reporty</strong> o vozidle podle VIN: základní informace, historie km, <strong>odcizená vozidla</strong>, <strong>tržní hodnota</strong>.<br><br>Cenu a podmínky IC Office ukáže před vytvořením reportu.",
           "next": "Začít →"
         },
@@ -3329,22 +3474,23 @@
             "/vin-decoder*"
           ],
           "title": "Vyberte obsah reportu",
+          "kratce": "<strong>Obsah reportu</strong> · <strong>km</strong>",
           "text": "Zaškrtněte obsah reportu (žlutě = volitelné). Pro tržní hodnotu zadejte <strong>aktuální stav km</strong>. Cenu zkontrolujte přímo v IC Office.",
           "target": [
-            "#isOdometer"
+            "label[for='isOdometer']"
           ],
           "label": "Historie km",
           "extras": [
             {
               "target": [
-                "#isStolen"
+                "label[for='isStolen']"
               ],
               "label": "Odcizená vozidla",
               "color": "yellow"
             },
             {
               "target": [
-                "#isMarketPrice"
+                "label[for='isMarketPrice']"
               ],
               "label": "Tržní hodnota",
               "color": "yellow"
@@ -3368,6 +3514,7 @@
             "/vin-decoder*"
           ],
           "title": "Vytvořte report",
+          "kratce": "<strong>Report → START</strong>",
           "text": "Report vytvoříte tlačítkem <strong>Report → START</strong>. V <strong>historii reportů</strong> dole jde každý <strong>vytisknout</strong> nebo <strong>poslat e-mailem</strong>.",
           "target": [
             "#btnReport"
@@ -3381,7 +3528,8 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
           "text": "Umíte vytvořit <strong>report o vozidle podle VIN</strong> — základní data, historie km, odcizení i tržní hodnotu.",
           "next": "Zavřít ✓"
         }
@@ -3405,7 +3553,8 @@
             "/revisions-trainings*"
           ],
           "title": "Ať vám neuteče žádný termín",
-          "text": "Revize, školení a kalibrace pohlídá <strong>Můj servis → Revize a školení</strong>: termín jednou zapíšete a IC Office <strong>upozorní předem</strong>.<br><br>⚠ Upozornění je <strong>informativní pomůcka</strong> — odpovědnost za dodržení termínu zůstává na vás.",
+          "kratce": "Hlídání termínů revizí",
+          "text": "Revize, školení a kalibrace pohlídá <strong>Můj servis → Revize a školení</strong>: termín jednou zapíšete a IC Office <strong>upozorní předem</strong>.<br><br>Pozor: upozornění je <strong>informativní pomůcka</strong> — odpovědnost za dodržení termínu zůstává na vás.",
           "next": "Začít →"
         },
         {
@@ -3418,6 +3567,7 @@
             "/revisions-trainings*"
           ],
           "title": "Otevřete Revize a školení",
+          "kratce": "<strong>Můj servis</strong> → <strong>Revize</strong>",
           "text": "Najeďte v horním menu na <strong>Můj servis</strong> a klikněte na <strong>Revize a školení</strong>.",
           "target": [
             "li:has(> ul a[href='/revisions-trainings/']) > a"
@@ -3440,6 +3590,7 @@
             "/revisions-trainings*"
           ],
           "title": "Evidence termínů",
+          "kratce": "<strong>Evidence termínů</strong>",
           "text": "Jeden řádek = jeden termín:<br>• <strong>Datum platnosti</strong> — dokdy platí<br>• <strong>Upozornění předem</strong> — kolik dní dopředu<br>• <strong>Stav</strong> — co se blíží nebo propadlo<br><br>K záznamu jde uložit <strong>fotka</strong> a <strong>PDF</strong> (revizní zpráva, certifikát).",
           "target": [
             "#table_service"
@@ -3468,9 +3619,10 @@
             "/revisions-trainings*"
           ],
           "title": "Co budete hlídat",
+          "kratce": "<strong>Název</strong> (nebo Jiný)",
           "text": "V <strong>Vyberte název</strong> je seznam nejčastějších termínů — <strong>BOZP</strong>, <strong>hasicí přístroje</strong>, <strong>elektro</strong>, <strong>zvedáky</strong>, <strong>kalibrace</strong>…<br><br>Když tam položka není, zvolte <strong>Jiný</strong> a dopište ji.",
           "target": [
-            "#selectName"
+            "#selectName + .select2-container"
           ],
           "label": "Vyberte název",
           "noHealth": true,
@@ -3485,9 +3637,12 @@
             }
           ],
           "advance": {
-            "filled": [
+            "filledAny": [
               [
-                "#frm-createRecord-name"
+                "#selectName:has(option:checked:not([value='']):not([value='100']))"
+              ],
+              [
+                "#createModal:has(#selectName option[value='100']:checked) #frm-createRecord-name"
               ]
             ],
             "gateAnchor": [
@@ -3505,6 +3660,7 @@
             "/revisions-trainings*"
           ],
           "title": "Do kdy platí a kdy se ozvat",
+          "kratce": "<strong>Datum platnosti</strong> · <strong>dny</strong>",
           "text": "<strong>Datum platnosti</strong> = den, kdy termín propadá (<strong>dd.mm.rrrr</strong>). <strong>Počet dní</strong> = o kolik dřív upozornit — u revizí klidně <strong>30 dní</strong>.",
           "target": [
             "#frm-createRecord-date_exp"
@@ -3546,6 +3702,7 @@
             "/revisions-trainings*"
           ],
           "title": "Popis a kontakt (doporučeno)",
+          "kratce": "<strong>Popis</strong> · <strong>kontakt</strong>",
           "text": "Do <strong>popisu</strong> napište, čeho se termín týká. <strong>Kontakt</strong> na technika se za rok bude hodit — máte ho rovnou u termínu.",
           "target": [
             "#frm-createRecord-description"
@@ -3598,6 +3755,7 @@
             "/revisions-trainings*"
           ],
           "title": "Jak upozornění uvidíte",
+          "kratce": "Upozornění v <strong>hlavičce</strong>",
           "text": "Blížící se termíny se ukazují mezi <strong>upozorněními v hlavičce</strong> IC Office. Záznam jde <strong>upravit</strong> i <strong>smazat</strong>; po vyřízení stačí <strong>posunout datum platnosti</strong>.",
           "target": [
             "#table_service"
@@ -3637,6 +3795,7 @@
             "/documents*"
           ],
           "title": "Co si tu vytisknete",
+          "kratce": "<strong>Hotové dokumenty</strong>",
           "text": "Předpřipravené listiny:<br>• <strong>GDPR</strong> a <strong>ADR</strong> — jen vytisknout<br>• <strong>Plná moc</strong> a <strong>Čestné prohlášení</strong> — doplníte zmocnitele a účel<br>• <strong>Prázdný zakázkový list</strong><br>• <strong>Protokol o uskladnění pneumatik</strong><br><br>IC Office <strong>neodpovídá za správnost ani platnost</strong> listin — před použitím si je projděte.",
           "target": [
             "a[href='/documents/gdpr']"
@@ -3668,8 +3827,9 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
-          "text": "<strong>Můj servis</strong> teď hlídá termíny za vás.<br><br>📅 termín → 🔔 upozornění předem → 📎 dokumenty u záznamu → 📄 listiny v Dokumentech<br><br>Upozornění je <strong>informativní</strong> a řídí se jen tím, co si zadáte.",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
+          "text": "<strong>Můj servis</strong> teď hlídá termíny za vás.<br><br>termín → upozornění předem → dokumenty u záznamu → listiny v Dokumentech<br><br>Upozornění je <strong>informativní</strong> a řídí se jen tím, co si zadáte.",
           "next": "Zavřít ✓"
         }
       ]
@@ -3713,6 +3873,7 @@
             "/invoices*"
           ],
           "title": "Faktura je špatně — co teď",
+          "kratce": "Stejné číslo faktury",
           "text": "Vydání faktury znovu <strong>pod stejným číslem</strong>:<br>① <strong>zrušit</strong> špatnou fakturu (opsat si číslo)<br>② v <strong>nastavení fakturace</strong> nastavit uvolněné číslo<br>③ <strong>vystavit fakturu znovu</strong><br>④ <strong>vrátit číslování zpět</strong><br><br>Na čtvrtý krok se zapomíná — bez něj by další faktura dostala číslo, které už existuje.",
           "next": "Začít →"
         },
@@ -3740,6 +3901,7 @@
             "/invoices*"
           ],
           "title": "Najděte fakturu a opište si číslo",
+          "kratce": "Opište <strong>číslo</strong>",
           "text": "Najděte fakturu (pomůže <strong>vyhledávání</strong>) a <strong>opište si její číslo</strong> ze sloupce <strong>Číslo</strong> — to dostane nová faktura.",
           "target": [
             "a[href='/invoices/']"
@@ -3754,11 +3916,13 @@
             "/invoices*"
           ],
           "title": "Zrušte špatnou fakturu",
+          "kratce": "<strong>Koš</strong> u faktury",
           "text": "Klikněte na ikonu <strong>koše</strong> <strong>u řádku své faktury</strong> — průvodce ji na prvním řádku vysvěcuje jen jako ukázku. Fakturu zruší teprve <strong>Ano</strong> v okně <strong>Smazání faktury</strong>.",
           "target": [
             "[data-target='#invoiceDelete']"
           ],
           "label": "Koš — u vašeho řádku",
+          "noHealth": true,
           "next": false
         },
         {
@@ -3768,7 +3932,8 @@
             "/invoices*"
           ],
           "title": "Potvrďte zrušení",
-          "text": "Potvrďte tlačítkem <strong>Ano</strong> — číslo se uvolní (omyl vrátí <strong>Ne</strong>).<br><br>Po potvrzení <strong>žádná hláška nepřijde</strong> — řádek jen zmizí. Zkontrolujte, že faktura už v seznamu není.",
+          "kratce": "<strong>Ano</strong> = zrušit",
+          "text": "Potvrďte tlačítkem <strong>Ano</strong> — číslo se uvolní. Pokud zvolíte <strong>Ne</strong>, faktura zůstane zachovaná; v průvodci klikněte na <strong>← Zpět</strong> a vyberte správnou fakturu.<br><br>Po potvrzení <strong>žádná hláška nepřijde</strong> — řádek jen zmizí. Zkontrolujte, že faktura už v seznamu není.",
           "target": [
             "#invoiceDelete a.btn-danger"
           ],
@@ -3784,9 +3949,6 @@
               "when": "visible"
             }
           ],
-          "advance": {
-            "hidden": "#invoiceDelete"
-          },
           "next": false
         },
         {
@@ -3800,6 +3962,7 @@
             "/invoice/settings*"
           ],
           "title": "Otevřete nastavení fakturace",
+          "kratce": "<strong>Nastavení</strong> → <strong>Fakturace</strong>",
           "text": "Najeďte na <strong>Nastavení</strong> a klikněte na <strong>Fakturace</strong> — nastavíte číslo pro <strong>další</strong> fakturu.",
           "target": [
             "li:has(> ul a[href='/settings/invoice']) > a"
@@ -3821,6 +3984,7 @@
             "/settings/invoice*"
           ],
           "title": "Přejděte do úprav",
+          "kratce": "<strong>Změnit nastavení faktur</strong>",
           "text": "Klikněte na <strong>Změnit nastavení faktur</strong> — měnit budete <strong>Pořadové číslo další normální faktury</strong>.",
           "target": [
             "a[href='/invoice/settings']"
@@ -3835,7 +3999,8 @@
             "/invoice/settings*"
           ],
           "title": "Poznamenejte si původní číslo a vložte uvolněné",
-          "text": "⚠ <strong>Nejdřív si opište současnou hodnotu</strong> — na konci ji budete vracet.<br><br>Pak vložte <strong>pořadové číslo zrušené faktury</strong> (bez roku).",
+          "kratce": "Opsat → vložit <strong>číslo</strong>",
+          "text": "<strong>Nejdřív si opište současnou hodnotu</strong> — na konci ji budete vracet.<br><br>Pak vložte <strong>pořadové číslo zrušené faktury</strong> (bez roku).",
           "target": [
             "#frm-invoiceForm-num_normal_one"
           ],
@@ -3882,6 +4047,7 @@
             "*"
           ],
           "title": "Vystavte fakturu znovu",
+          "kratce": "<strong>Vystavit znovu</strong>",
           "text": "Na <strong>kartě klienta</strong> vystavte fakturu znovu (název zakázky → <strong>Faktury</strong>). Zkontrolujte:<br>• <strong>DUZP</strong> — den dokončení práce, ne dnešek<br>• <strong>splatnost</strong><br>• že faktura dostala <strong>správné číslo</strong>",
           "target": [
             "a[href='/customers/']"
@@ -3921,6 +4087,7 @@
             "/invoice/settings*"
           ],
           "title": "Vraťte původní pořadové číslo",
+          "kratce": "Vrátit <strong>původní číslo</strong>",
           "text": "Vraťte <strong>hodnotu opsanou na začátku</strong> a <strong>uložte</strong> — řada pak navazuje bez díry i duplicity.",
           "target": [
             "#frm-invoiceForm-num_normal_one"
@@ -3952,8 +4119,9 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
-          "text": "Faktura je opravená a <strong>číselná řada sedí</strong>.<br><br>🗑 zrušit → 🔢 uvolněné číslo → 🧾 vystavit znovu → 🔙 vrátit číslování",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
+          "text": "Faktura je opravená a <strong>číselná řada sedí</strong>.<br><br>zrušit → uvolněné číslo → vystavit znovu → vrátit číslování",
           "next": "Zavřít ✓"
         }
       ]
@@ -3976,7 +4144,8 @@
             "/overview*"
           ],
           "title": "Čísla o vašem servisu",
-          "text": "Pro <strong>majitele, vedoucího a účetní</strong>:<br>📊 <strong>tržby a marže</strong><br>👨‍🔧 <strong>výkon mechaniků</strong><br>🧾 <strong>po splatnosti</strong> a nevyfakturované<br>📥 <strong>podklady pro účetní</strong>",
+          "kratce": "Čísla o servisu",
+          "text": "Pro <strong>majitele, vedoucího a účetní</strong>:<br>• <strong>tržby a marže</strong><br>• <strong>výkon mechaniků</strong><br>• <strong>po splatnosti</strong> a nevyfakturované<br>• <strong>podklady pro účetní</strong>",
           "next": "Začít →"
         },
         {
@@ -3989,6 +4158,7 @@
             "/overview-graphic/general*"
           ],
           "title": "Otevřete grafické přehledy",
+          "kratce": "<strong>Přehledy</strong> → <strong>Zakázky…</strong>",
           "text": "Najeďte v horním menu na <strong>Přehledy</strong> a klikněte na <strong>Zakázky, faktury, prodej…</strong>",
           "target": [
             "li:has(> ul a[href='/overview-graphic/general']) > a",
@@ -4011,6 +4181,7 @@
             "/overview-graphic/general*"
           ],
           "title": "Nejdřív si zvolte období",
+          "kratce": "<strong>Od – do</strong> → <strong>Filtrovat</strong>",
           "text": "Grafy se řídí <strong>obdobím nahoře</strong>: nastavte <strong>od</strong>–<strong>do</strong> a klikněte <strong>Filtrovat</strong> (typicky uplynulý měsíc).",
           "target": [
             "#from"
@@ -4041,6 +4212,7 @@
             "/overview-graphic/general*"
           ],
           "title": "Zakázky a faktury",
+          "kratce": "<strong>Zakázky</strong> · <strong>faktury</strong>",
           "text": "Nahoře <strong>zakázky</strong> (interní zvlášť), níže <strong>vystavené faktury</strong> a <strong>přijaté faktury</strong>.",
           "target": [
             "#contracts"
@@ -4078,6 +4250,7 @@
             "/overview-graphic/general*"
           ],
           "title": "Marže — kde se skutečně vydělává",
+          "kratce": "<strong>Marže</strong>",
           "text": "Marže je rozdělená na <strong>zakázky</strong>, <strong>pokladnu</strong> a <strong>prodej ze skladu</strong>; u zakázek zvlášť <strong>materiál</strong> a <strong>práce</strong>. Tady se pozná, na čem vyděláváte.",
           "target": [
             "#marginsContracts"
@@ -4140,6 +4313,7 @@
             "/overview-graphic/mechanics*"
           ],
           "title": "Kolik odvedl který mechanik",
+          "kratce": "Řiďte se <strong>položkami</strong>",
           "text": "Dva pohledy:<br>• <strong>podle celých zakázek</strong> — zodpovědný za zakázku<br>• <strong>podle položek</strong> — přesnější, počítá jen jeho práci<br><br>Když na zakázce dělá víc lidí, řiďte se <strong>položkami</strong>.",
           "target": [
             "#mechanicsItemsContracts"
@@ -4170,8 +4344,7 @@
             "*"
           ],
           "urlNot": [
-            "/overview/*",
-            "/overview-graphic*"
+            "/overview/*"
           ],
           "title": "Tabulkové přehledy",
           "text": "Najeďte na <strong>Přehledy</strong> a klikněte na <strong>Tabulkové</strong> — čísla a soubory pro účetní.",
@@ -4199,6 +4372,7 @@
             "/overview/credit*"
           ],
           "title": "Co tu najdete",
+          "kratce": "<strong>Období</strong> · skupiny",
           "text": "Skupiny přehledů:<br>• <strong>Faktury</strong> — hlavně <strong>po splatnosti</strong><br>• <strong>Zakázky</strong> — hlavně <strong>k fakturaci</strong> (hotové, nevyfakturované)<br>• <strong>Mechanici / Technici / Operátoři</strong><br><br>Vše se řídí <strong>obdobím</strong> nahoře.",
           "target": [
             "#from"
@@ -4226,6 +4400,7 @@
             "/overview/credit*"
           ],
           "title": "Podklady pro účetní",
+          "kratce": "<strong>Exporty</strong> pro účetní",
           "text": "Exporty u vystavených faktur:<br>• <strong>Excel</strong> — obecný<br>• <strong>XML – Pohoda / Money S3</strong> — přímo do účetního programu<br>• <strong>ZIP – ISDOC</strong> a <strong>ZIP – PDF</strong><br><br>Formát si s účetní domluvte jednou, pak už jen klikáte.",
           "target": [
             "input[name='_reset']"
@@ -4239,8 +4414,9 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
-          "text": "Víte, kde jsou čísla o vašem servisu.<br><br>📊 tržby a <strong>marže</strong> → 👨‍🔧 mechanici → 📋 <strong>faktury po splatnosti</strong> a <strong>zakázky k fakturaci</strong> → 📥 export pro účetní",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
+          "text": "Víte, kde jsou čísla o vašem servisu.<br><br>tržby a <strong>marže</strong> → mechanici → <strong>faktury po splatnosti</strong> a <strong>zakázky k fakturaci</strong> → export pro účetní",
           "next": "Zavřít ✓"
         }
       ]
@@ -4263,7 +4439,7 @@
             "/settings*"
           ],
           "title": "Základní nastavení systému",
-          "text": "Pro začátek stačí dvě věci:<br>🏢 <strong>Firemní údaje</strong> — tisknou se na dokumenty<br>🧾 <strong>Fakturace</strong> — DPH, číslování, splatnost<br><br>Na konci přidáme volitelná doporučení.",
+          "text": "Pro začátek stačí dvě věci:<br>• <strong>Firemní údaje</strong> — tisknou se na dokumenty<br>• <strong>Fakturace</strong> — DPH, číslování, splatnost<br><br>Na konci přidáme volitelná doporučení.",
           "next": "Začít →"
         },
         {
@@ -4279,13 +4455,12 @@
           "title": "Nastavení → Firma",
           "text": "Najeďte v horním menu na <strong>Nastavení</strong> a klikněte na <strong>Firma</strong>.",
           "target": [
-            "li:has(> ul a[href='/settings/company']) > a",
-            "a[href='/settings/company']"
+            "#left-panel li:has(> ul a[href='/settings/company']) > a"
           ],
           "label": "Nastavení",
           "then": {
             "target": [
-              "a[href='/settings/company']"
+              "#left-panel a[href='/settings/company']"
             ],
             "label": "Firma",
             "text": "Klikněte na <strong>Firma</strong>."
@@ -4301,6 +4476,7 @@
             "/settings/company*"
           ],
           "title": "Firemní údaje",
+          "kratce": "<strong>Firemní údaje</strong>",
           "text": "Zkontrolujte <strong>jméno firmy, adresu, telefon, IČO/DIČ a účet</strong> — tisknou se na doklady.<br><br>Níže dále: <strong>logo a razítko</strong>, <strong>šablona e-mailu</strong>, <strong>GDPR dokument</strong>, <strong>operátoři / mechanici</strong>.",
           "target": [
             "input[name='nazev']",
@@ -4310,16 +4486,14 @@
           "extras": [
             {
               "target": [
-                "input[name='telefon']",
-                "#frm-companyForm-telefon"
+                "input[name='telefon']"
               ],
               "label": "Telefon",
               "color": "red"
             },
             {
               "target": [
-                "input[name='dic']",
-                "#dic"
+                "input[name='dic']"
               ],
               "label": "DIČ",
               "color": "yellow"
@@ -4360,11 +4534,11 @@
             "/settings/invoice*"
           ],
           "title": "Nastavení faktur",
+          "kratce": "<strong>Změnit nastavení faktur</strong>",
           "text": "Tlačítkem <strong>Změnit nastavení faktur</strong> upravíte:<br>• <strong>Plátce / Neplátce DPH</strong><br>• <strong>číslování faktur</strong><br>• <strong>splatnost</strong> a <strong>variabilní symbol</strong><br>• <strong>zaokrouhlování</strong> a položky na faktuře",
           "target": [
             "a.btn-success[href='/invoice/settings']",
-            "a[href='/invoice/settings']",
-            "input[value='Změnit nastavení faktur']"
+            "a[href='/invoice/settings']"
           ],
           "label": "Změnit nastavení faktur",
           "next": "Další →",
@@ -4399,6 +4573,7 @@
             "/price-lists/services*"
           ],
           "title": "Ceník práce má dvě úrovně",
+          "kratce": "<strong>Kategorie</strong> → <strong>cena</strong>",
           "text": "Nejdřív <strong>kategorie</strong> tlačítkem <strong>Přidat práci</strong>, do ní <strong>ceny</strong> tlačítkem <strong>Přidat cenu</strong>. V zakázce se pak cena doplní sama.",
           "target": [
             "a.btn-primary.modalPriceCategory"
@@ -4422,6 +4597,7 @@
             "/price-lists/services*"
           ],
           "title": "Nastavení → Šablony → Popisy oprav",
+          "kratce": "<strong>Nastavení</strong> → <strong>Popisy oprav</strong>",
           "text": "<strong>Popisy objednané opravy</strong> = předpřipravené texty do zakázky.<br><br>Najeďte na <strong>Nastavení</strong> → <strong>Popisy objednané opravy</strong>.",
           "target": [
             "li:has(> ul a[href='/templates/descriptions']) > a",
@@ -4463,6 +4639,7 @@
             "/notice*"
           ],
           "title": "SMS a e-mail upozornění",
+          "kratce": "<strong>Nastavení</strong> → <strong>SMS upozornění</strong>",
           "text": "Poslední krok: automatické zprávy zákazníkům.<br><br>Najeďte na <strong>Nastavení</strong> → <strong>SMS a Email upozornění</strong>.",
           "target": [
             "li:has(> ul a[href='/settings/notice']) > a",
@@ -4474,6 +4651,7 @@
               "a[href='/settings/notice']"
             ],
             "label": "SMS a Email upozornění",
+            "kratce": "<strong>SMS upozornění</strong>",
             "text": "Klikněte na <strong>SMS a Email upozornění</strong>."
           },
           "next": false
@@ -4485,7 +4663,8 @@
             "/settings/notice*"
           ],
           "title": "Co si můžete zapnout",
-          "text": "Dvě skupiny:<br>• <strong>Konec platnosti STK</strong> — zpráva zákazníkovi předem<br>• <strong>Ostatní</strong> — zprávy podle stavu zakázky<br><br>Nastavíte <strong>SMS / e-mail</strong>, <strong>dny předem</strong> a <strong>text</strong>.<br><br>⚠️ <strong>SMS vyžaduje kredit</strong>; e-maily ne.",
+          "kratce": "<strong>STK</strong> · <strong>stav zakázky</strong>",
+          "text": "Dvě skupiny:<br>• <strong>Konec platnosti STK</strong> — zpráva zákazníkovi předem<br>• <strong>Ostatní</strong> — zprávy podle stavu zakázky<br><br>Nastavíte <strong>SMS / e-mail</strong>, <strong>dny předem</strong> a <strong>text</strong>.<br><br><strong>SMS vyžaduje kredit</strong>; e-maily ne.",
           "target": [
             "a[href='/notice/add-stk']"
           ],
@@ -4507,8 +4686,9 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
-          "text": "Základní nastavení je hotové! 🏁<br><br>🏢 firma → 🧾 fakturace → 💼 ceník práce → 📝 popisy → 📱 upozornění<br><br>Detaily doladíte ve scénáři <strong>Pokročilé nastavení</strong>.",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
+          "text": "Základní nastavení je hotové!<br><br>firma → fakturace → ceník práce → popisy → upozornění<br><br>Detaily doladíte ve scénáři <strong>Pokročilé nastavení</strong>.",
           "next": "Zavřít ✓"
         }
       ]
@@ -4528,7 +4708,8 @@
             "*"
           ],
           "title": "Co si doladíte, až servis pojede",
-          "text": "Prohlídka pokročilých voleb (nic není nutné hned):<br><br>👥 <strong>lidé a přístupy</strong> → 💰 <strong>slevy a marže</strong> → 📄 <strong>šablony</strong> → ⚙️ <strong>moduly</strong> → 📥 <strong>import a export</strong>",
+          "kratce": "Pokročilé volby",
+          "text": "Prohlídka pokročilých voleb (nic není nutné hned):<br><br><strong>lidé a přístupy</strong> → <strong>slevy a marže</strong> → <strong>šablony</strong> → <strong>moduly</strong> → <strong>import a export</strong>",
           "next": "Začít →"
         },
         {
@@ -4541,6 +4722,7 @@
             "/settings/accounts*"
           ],
           "title": "Podúčty pro zaměstnance",
+          "kratce": "<strong>Nastavení</strong> → <strong>Podúčty</strong>",
           "text": "Zaměstnanec může mít <strong>vlastní přihlášení</strong> s omezenými právy.<br><br>Najeďte na <strong>Nastavení</strong> a klikněte na <strong>Podúčty</strong>.",
           "target": [
             "li:has(> ul a[href='/settings/accounts']) > a",
@@ -4565,11 +4747,21 @@
           ],
           "noHealth": true,
           "title": "Podúčty a operátoři — v čem se liší",
+          "kratce": "Podúčet ≠ operátor",
           "text": "<strong>Podúčet</strong> = přihlášení s úrovní práv.<br><strong>Operátor / mechanik</strong> = jen jméno na zakázkovém listu (nastavuje se v <strong>Nastavení → Firma</strong>, bez přihlášení).",
           "target": [
-            "a[href='/settings/accounts']"
+            "#frm-addSubAccForm-uname"
           ],
-          "label": "Podúčty",
+          "label": "Přihlašovací e-mail",
+          "extras": [
+            {
+              "target": [
+                "#prava"
+              ],
+              "label": "Úroveň práv",
+              "color": "yellow"
+            }
+          ],
           "next": "Další →"
         },
         {
@@ -4582,6 +4774,7 @@
             "/price-lists/price-list*"
           ],
           "title": "Slevy a marže",
+          "kratce": "<strong>Nastavení</strong> → <strong>Slevy / marže</strong>",
           "text": "Stálým zákazníkům jde nastavit <strong>vlastní slevu / marži</strong>.<br><br>Najeďte na <strong>Nastavení</strong> → <strong>Slevy / marže</strong>.",
           "target": [
             "li:has(> ul a[href='/price-lists/price-list']) > a",
@@ -4606,11 +4799,12 @@
           ],
           "noHealth": true,
           "title": "Tři ceníky vedle sebe",
+          "kratce": "<strong>Tři ceníky</strong>",
           "text": "Tři ceníky:<br>• <strong>Slevy / marže</strong> — pro konkrétní klienty<br>• <strong>Práce</strong> — ceny prací<br>• <strong>Ostatní</strong> — např. likvidace oleje<br><br>Klientovi se ceník přiřadí na kartě přes <strong>Ceny klienta</strong>.",
           "target": [
-            "a[href='/price-lists/others']"
+            "a.btn[data-target='#modalPrice']"
           ],
-          "label": "Ostatní položky",
+          "label": "Přidat slevu / marži",
           "next": "Další →"
         },
         {
@@ -4623,6 +4817,7 @@
             "/templates*"
           ],
           "title": "Šablony textů na dokladech",
+          "kratce": "<strong>Nastavení</strong> → <strong>Poznámky</strong>",
           "text": "Šablony ušetří opakované psaní: <strong>poznámky na dokladech</strong>, <strong>SMS a e-maily</strong>, <strong>plná moc</strong>.<br><br>Najeďte na <strong>Nastavení</strong> → <strong>Poznámky na faktuře</strong>.",
           "target": [
             "li:has(> ul a[href='/templates/invoice-notes']) > a",
@@ -4647,27 +4842,12 @@
           ],
           "noHealth": true,
           "title": "Které šablony existují",
+          "kratce": "<strong>Šablony</strong> v Nastavení",
           "text": "Šablony v <strong>Nastavení</strong>:<br>• <strong>poznámky</strong> na zakázce, nabídce a faktuře<br>• <strong>SMS</strong> a <strong>e-maily</strong><br>• <strong>plná moc</strong><br><br>Tip: v e-mailech fungují zástupné texty (číslo faktury, jméno firmy).",
           "target": [
-            "a[href='/templates/sms']"
+            "a[href='/templates/invoice-note-add']"
           ],
-          "label": "Šablony SMS",
-          "extras": [
-            {
-              "target": [
-                "a[href='/templates/emails']"
-              ],
-              "label": "Šablony e-mailů",
-              "color": "yellow"
-            },
-            {
-              "target": [
-                "a[href='/templates/poa']"
-              ],
-              "label": "Plná moc",
-              "color": "yellow"
-            }
-          ],
+          "label": "Přidat poznámku",
           "next": "Další →"
         },
         {
@@ -4680,6 +4860,7 @@
             "/settings/contracts*"
           ],
           "title": "Zakázky — číslování a doprava",
+          "kratce": "<strong>Nastavení</strong> → <strong>Zakázky</strong>",
           "text": "<strong>Číslování zakázek</strong> a <strong>doprava</strong>.<br><br>Najeďte na <strong>Nastavení</strong> → v části Zakázky na <strong>Nastavení</strong>.",
           "target": [
             "li:has(> ul a[href='/settings/contracts']) > a",
@@ -4691,6 +4872,7 @@
               "a[href='/settings/contracts']"
             ],
             "label": "Nastavení zakázek",
+            "kratce": "<strong>Zakázky</strong> → <strong>Nastavení</strong>",
             "text": "Klikněte na <strong>Nastavení</strong> v části Zakázky."
           },
           "next": false
@@ -4703,25 +4885,19 @@
             "/settings/contracts*"
           ],
           "noHealth": true,
-          "title": "Co všechno jde u zakázek upravit",
-          "text": "Přizpůsobit jde i <strong>vzhled dokumentů</strong>:<br>• <strong>Formulář klienta a zakázkový list</strong><br>• <strong>Přehled na dílnu</strong><br>• <strong>Přehled zakázky</strong><br>• <strong>Export zakázek</strong>",
+          "title": "Nastavení zakázek",
+          "kratce": "<strong>Číslování zakázek</strong>",
+          "text": "Zde nastavíte <strong>číslo další zakázky</strong>, <strong>automatické číslování</strong>, <strong>řazení zakázek</strong> a co se zobrazuje u zboží. Nezapomeňte <strong>Uložit</strong>.<br><br>Vzhled dokumentů (formulář klienta, přehled na dílnu, přehled zakázky) najdete v menu <strong>Nastavení → Zakázky</strong>.",
           "target": [
-            "a[href='/settings/form']"
+            "#frm-contractForm-cislo"
           ],
-          "label": "Formulář a zakázkový list",
+          "label": "Následující zakázka č.",
           "extras": [
             {
               "target": [
-                "a[href='/settings/worksheet']"
+                "#frm-contractForm input[name='send']"
               ],
-              "label": "Přehled na dílnu",
-              "color": "yellow"
-            },
-            {
-              "target": [
-                "a[href='/settings/last-contract']"
-              ],
-              "label": "Přehled zakázky",
+              "label": "Uložit",
               "color": "yellow"
             }
           ],
@@ -4735,6 +4911,7 @@
             "*"
           ],
           "title": "Nastavení jednotlivých modulů",
+          "kratce": "<strong>Nastavení modulů</strong>",
           "text": "Každý modul má vlastní nastavení:<br>• <strong>Pokladna</strong> a <strong>Prodej</strong> — číslování<br>• <strong>Zboží</strong> a <strong>Pneumatiky</strong> — sklady<br>• <strong>Kalendář</strong> — pracovní doba<br>• <strong>Klienti</strong> — obory a regiony<br>• <strong>Kurzy ČNB</strong> — cizí měny",
           "target": [
             "li:has(> ul a[href='/settings/cashbox']) > a",
@@ -4751,6 +4928,7 @@
             "*"
           ],
           "title": "Import dat a export do účetnictví",
+          "kratce": "<strong>Import a export</strong>",
           "text": "<strong>Import</strong>: klienti, vozidla i ceníky prací z jiného systému.<br><strong>Export pro účetní</strong>: faktury do <strong>Pohody, Money S3 a ISDOC</strong>.<br><br>Obojí v nabídce <strong>Nastavení</strong>.",
           "target": [
             "li:has(> ul a[href='/import/customers']) > a",
@@ -4765,8 +4943,9 @@
           "url": [
             "*"
           ],
-          "title": "Hotovo! 🎉",
-          "text": "Prošli jste <strong>pokročilé nastavení</strong>.<br><br>👥 podúčty → 💰 slevy a marže → 📄 šablony → ⚙️ moduly → 📥 import a export<br><br>Vracejte se sem, kdykoli něco začne chybět.",
+          "title": "Hotovo!",
+          "kratce": "<strong>Hotovo!</strong>",
+          "text": "Prošli jste <strong>pokročilé nastavení</strong>.<br><br>podúčty → slevy a marže → šablony → moduly → import a export<br><br>Vracejte se sem, kdykoli něco začne chybět.",
           "next": "Zavřít ✓"
         }
       ]

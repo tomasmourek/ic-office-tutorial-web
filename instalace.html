@@ -1,48 +1,69 @@
 <!doctype html>
-<html lang="cs"><head><meta charset="utf-8">
+<html lang="cs" data-area="crm" data-vzhled="tiskopis" data-vzhled-pevny>
+<head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Instalace — IC Office Tutoriál</title><style>body{max-width:44rem;margin:0 auto;padding:2rem 1.2rem 4rem;
-  font:16px/1.6 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1c2330}
-h1{font-size:1.7rem}h2{font-size:1.2rem;margin-top:2rem}h3{font-size:1rem}
-a{color:#1769aa}code{background:#f2f5f9;padding:.1em .35em;border-radius:4px;font-size:.9em}
-.hlav{border-bottom:1px solid #e2e7ee;padding-bottom:1rem;margin-bottom:1.5rem}
-.pata{margin-top:3rem;padding-top:1rem;border-top:1px solid #e2e7ee;color:#78818d;font-size:.85rem}
-.karta{border:1px solid #e2e7ee;border-radius:12px;padding:1rem 1.2rem;margin:1rem 0}</style></head>
-<body><div class="hlav"><strong>IC Office Tutoriál 2.56.0</strong></div>
+<title>Instalace — IC Office Tutoriál</title>
+<link rel="stylesheet" href="atomys/atomys.min.css">
+<style>body.at-web{display:flex;flex-direction:column;min-block-size:100vh;margin:0}
+body.at-web>main{flex:1 0 auto}
+.icop-clanek{padding-block:var(--at-space-8) var(--at-layout-section-space);
+  padding-inline:max(var(--at-layout-gutter),calc((100% - var(--at-layout-page-max))/2))}
+.icop-clanek>*{max-inline-size:var(--at-layout-text-max)}
+.icop-clanek h1{margin:0 0 var(--at-space-3)}
+.icop-clanek h2{margin:var(--at-space-8) 0 var(--at-space-3);padding-top:var(--at-space-6);
+  border-top:var(--at-border-rule) solid var(--_web-linka,var(--at-rule))}
+.icop-clanek h3{margin:var(--at-space-6) 0 var(--at-space-2)}
+.icop-clanek :is(ul,ol){padding-inline-start:1.5em}
+.icop-clanek li+li{margin-top:var(--at-space-1)}
+.icop-perex{color:var(--at-ink-soft)}
+.icop-akce{margin-top:var(--at-space-6)}
+.icop-clanek code{padding:0 var(--at-space-1);border:var(--at-border-rule) solid var(--at-rule);
+  border-radius:var(--at-radius-control);background:var(--_web-studna,var(--at-surface-2));
+  font-family:var(--at-font-data);font-size:.9em}
+.icop-kod{margin-block:var(--at-space-4)}
+.icop-kod .at-kod-obrazovky__kod{font-size:var(--at-font-size-h3)}
+.icop-clanek .at-hlaseni{margin-block:var(--at-space-6)}
+.icop-clanek .at-hlaseni__nadpis{margin:0;padding:0;border:0}</style></head>
+<body class="at-web">
+<a class="at-skip-link" href="#obsah">Přeskočit na obsah</a>
+<header class="at-web-hlavicka"><div class="at-web-hlavicka__vnitrek">
+<a class="at-web-hlavicka__produkt" href="index.html">IC Office Tutoriál</a>
+<div class="at-web-hlavicka__panel"><nav class="at-web-hlavicka__nav" aria-label="Hlavní navigace"><ul>
+<li><a href="instalace.html" aria-current="page">Instalace</a></li>
+<li><a href="soukromi.html">Ochrana soukromí</a></li>
+</ul></nav></div></div></header>
+<main id="obsah" tabindex="-1"><article class="icop-clanek">
 
-<h1>Jak doplněk nainstalovat</h1>
-<p>Postup se liší podle prohlížeče — každý má jiná pravidla pro doplňky, které
-nejsou v jeho obchodě.</p>
+<h1>Jak doplněk IC Office Tutoriál nainstalovat</h1>
+<p class="icop-perex">Postup se liší podle prohlížeče — každý má jiná pravidla pro doplňky, které
+nejsou v jeho obchodě.</p>
 
-<div class="karta" style="border-color:#b6dcc0;background:#f3faf5">
-<h3>✅ Nejjednodušší cesta</h3>
-<p>Pokud vám někdo poslal <strong>odkaz do obchodu</strong>, použijte ho —
-doplněk se nainstaluje jedním tlačítkem a sám se aktualizuje. Návody níž
-potřebujete jen tehdy, když odkaz nemáte.</p>
+<div class="at-hlaseni" role="note">
+<svg class="at-icon at-hlaseni__ikona" aria-hidden="true"><use href="atomys/ikony/ikony.svg#i-info"></use></svg>
+<h2 class="at-hlaseni__nadpis">Máte odkaz do obchodu? Použijte ho</h2>
+<div class="at-hlaseni__text"><p>Doplněk se z obchodu nainstaluje jedním tlačítkem a sám se
+aktualizuje. Návody níž potřebujete jen tehdy, když odkaz nemáte.</p></div>
 </div>
 
-<div class="karta">
-<h3>Chrome, Edge, Opera, Brave</h3>
+<h2>Chrome, Edge, Opera, Brave</h2>
 <p>Tyhle prohlížeče <strong>nedovolí</strong> nainstalovat doplněk kliknutím na
 odkaz — brání to podvodným doplňkům. Jde to přes <em>režim pro vývojáře</em>:</p>
 <ol>
 <li>Stáhněte <a href="ke-stazeni/ic-office-tutorial-2-v2.56.0-chrome.zip">balíček pro Chrome</a>
     a <strong>rozbalte ho</strong> do složky, kterou nesmažete
-    (doplněk se z ní načítá při každém spuštění prohlížeče).</li>
+    (doplněk se z ní načítá při každém spuštění prohlížeče).</li>
 <li>Otevřete <code>chrome://extensions</code>
-    (v Edge <code>edge://extensions</code>, v Opeře <code>opera://extensions</code>).</li>
+    (v Edge <code>edge://extensions</code>, v Opeře <code>opera://extensions</code>).</li>
 <li>Vpravo nahoře zapněte <strong>Režim pro vývojáře</strong>.</li>
-<li>Klikněte na <strong>Načíst rozbalené</strong> a vyberte tu složku.</li>
+<li>Klikněte na <strong>Načíst rozbalené</strong> a vyberte tu složku.</li>
 <li>Otevřete <a href="https://ic-office.eu">ic-office.eu</a> — vpravo dole
-    naskočí červené tlačítko <strong>?</strong>.</li>
+    se objeví tlačítko <strong>Průvodce</strong>.</li>
 </ol>
 <p><strong>Co to obnáší:</strong> prohlížeč při každém startu upozorní, že běží
-doplněk v režimu pro vývojáře, a <strong>aktualizace se nedělají samy</strong> —
-novou verzi je potřeba stáhnout a načíst znovu.</p>
-</div>
+doplněk v režimu pro vývojáře, a <strong>aktualizace se nedělají samy</strong> —
+novou verzi je potřeba stáhnout a načíst znovu.</p>
 
-<div class="karta">
-<h3>Firefox</h3>
+<h2>Firefox</h2>
 <p>Firefox umí doplňky mimo obchod nainstalovat <strong>jedním kliknutím</strong>,
 ale musí být podepsané Mozillou. Dokud podpis není, jde to jen dočasně:</p>
 <ol>
@@ -53,23 +74,29 @@ ale musí být podepsané Mozillou. Dokud podpis není, jde to jen dočasně:</p
 <p><strong>Dočasný doplněk zmizí při zavření prohlížeče.</strong> Trvalé
 řešení je nechat balíček podepsat na addons.mozilla.org volbou
 <em>„On your own“</em> — podpis je zdarma, doplněk se ve výpisu obchodu
-neobjeví a instaluje se pak odsud jedním kliknutím včetně automatických
+neobjeví a instaluje se pak odsud jedním kliknutím včetně automatických
 aktualizací.</p>
-</div>
 
-<div class="karta">
-<h3>Pro toho, kdo doplněk rozdává</h3>
+<h2>Pro toho, kdo doplněk rozdává</h2>
 <p><strong>Microsoft Edge Add-ons</strong> umí doplněk vydat jako
 <em>skrytý</em> — ve vyhledávání není, ale kdo má odkaz, nainstaluje ho běžným
 tlačítkem <strong>Získat</strong>. Registrace vývojáře je <strong>zdarma</strong>
-a balíček je stejný jako pro Chrome.</p>
+a balíček je stejný jako pro Chrome.</p>
 <p><strong>Chrome Web Store</strong> nabízí totéž pod názvem <em>Unlisted</em>,
 ale vývojářský účet stojí jednorázově 5 USD.</p>
 <p><strong>Firefox</strong> podepíše doplněk zdarma volbou <em>On your own</em> —
-ve výpisu obchodu se neobjeví a instaluje se přímo odsud, včetně automatických
+ve výpisu obchodu se neobjeví a instaluje se přímo odsud, včetně automatických
 aktualizací.</p>
+</article></main>
+<footer class="at-paticka">
+<div class="at-paticka__tiraz">
+<p class="at-paticka__produkt">IC Office Tutoriál 2.56.0</p>
+<p>Doplněk do prohlížeče k systému <a href="https://ic-office.eu">IC Office</a>.</p>
+<p>Provozovatel: [doplnit: provozovatel], IČO [doplnit: IČO].</p>
 </div>
-
-<p><a href="index.html">← Zpět</a></p>
-<div class="pata">IC Office Tutoriál — doplněk do prohlížeče k systému
-<a href="https://ic-office.eu">IC Office</a>.</div></body></html>
+<nav class="at-paticka__odkazy" aria-label="Dokumenty"><ul>
+<li><a href="soukromi.html">Ochrana soukromí</a></li>
+<li><a href="instalace.html">Instalace</a></li>
+<li><a href="obsah.json">Obsah průvodce (JSON)</a></li>
+</ul></nav>
+</footer></body></html>
