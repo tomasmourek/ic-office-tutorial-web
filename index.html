@@ -23,7 +23,10 @@ body.at-web>main{flex:1 0 auto}
 .icop-kod{margin-block:var(--at-space-4)}
 .icop-kod .at-kod-obrazovky__kod{font-size:var(--at-font-size-h3)}
 .icop-clanek .at-hlaseni{margin-block:var(--at-space-6)}
-.icop-clanek .at-hlaseni__nadpis{margin:0;padding:0;border:0}</style></head>
+.icop-clanek .at-hlaseni__nadpis{margin:0;padding:0;border:0}
+.icop-clanek>.icop-ukazka{max-inline-size:none;margin:var(--at-space-6) 0 0}
+.icop-ukazka img{display:block;max-inline-size:100%;block-size:auto;border:var(--at-border-rule) solid var(--at-rule-strong)}
+.icop-ukazka figcaption{margin-top:var(--at-space-2);font-size:var(--at-font-size-small);color:var(--at-muted)}</style></head>
 <body class="at-web">
 <a class="at-skip-link" href="#obsah">Přeskočit na obsah</a>
 <header class="at-web-hlavicka"><div class="at-web-hlavicka__vnitrek">
@@ -38,25 +41,25 @@ body.at-web>main{flex:1 0 auto}
 <p class="icop-perex">IC Office Tutoriál je doplněk do prohlížeče k systému
 <a href="https://ic-office.eu">IC Office</a>. Provede celým postupem —
 od nového zákazníka po vystavenou fakturu.</p>
+<figure class="icop-ukazka">
+<img src="obrazky/ukazka-karty.webp" width="1069" height="470"
+  alt="Karta průvodce s krokem 17 z 31 „Odhadovaná cena opravy“ a kódem OS-Z05. Na stránce je pole ceny orámované vínově jako povinné a volba předběžné ceny žlutě přerušovaně jako doporučení.">
+<figcaption>Krok OS-Z05: povinné pole vínově, doporučení žlutě přerušovaně.
+Snímek z testovací stránky doplňku.</figcaption>
+</figure>
 <p class="icop-akce"><a class="at-btn at-btn--primary" href="instalace.html">Jak doplněk nainstalovat</a></p>
 
 <h2>Kód kroku pro hotline</h2>
 <p>V průvodci je u každého kroku kód. Nadiktujte ho na hotline a technik pozná
 přesně, kde jste.</p>
-<p class="at-kod-obrazovky icop-kod">Kód kroku <span class="at-kod-obrazovky__kod">OS-Z04</span></p>
-
-<h2>Dokumenty</h2>
-<ul>
-<li><a href="instalace.html">Jak doplněk nainstalovat</a></li>
-<li><a href="soukromi.html">Ochrana soukromí</a></li>
-<li><a href="obsah.json">Obsah průvodce (JSON)</a> — strojově čitelná data doplňku</li>
-</ul>
+<p class="at-kod-obrazovky icop-kod">Kód kroku <span class="at-kod-obrazovky__kod">OS-Z05</span></p>
 </article></main>
 <footer class="at-paticka">
 <div class="at-paticka__tiraz">
-<p class="at-paticka__produkt">IC Office Tutoriál 2.56.0</p>
+<p class="at-paticka__produkt">IC Office Tutoriál 2.57.0</p>
 <p>Doplněk do prohlížeče k systému <a href="https://ic-office.eu">IC Office</a>.</p>
 <p>Provozovatel: [doplnit: provozovatel], IČO [doplnit: IČO].</p>
+<p>Podmínky použití: [doplnit: odkaz na podmínky].</p>
 </div>
 <nav class="at-paticka__odkazy" aria-label="Dokumenty"><ul>
 <li><a href="soukromi.html">Ochrana soukromí</a></li>

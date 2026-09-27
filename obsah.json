@@ -1,7 +1,7 @@
 {
   "format": 1,
   "obsahUrl": "",
-  "version": "2.56.0",
+  "version": "2.57.0",
   "colors": {
     "red": "#e53935",
     "yellow": "#f5c518"
@@ -1561,7 +1561,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Prošli jste celý postup:<br><br>klient → vozidlo → zakázka → podpis → faktura → tisk / PDF<br><br>Průvodce najdete kdykoli pod tlačítkem <strong>Průvodce</strong> vpravo dole.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -2399,7 +2399,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Prošli jste postup <strong>telefonické objednávky</strong>:<br><br>požadavek v kalendáři → zakázka z požadavku → faktura<br><br>Průvodce najdete kdykoli pod tlačítkem <strong>Průvodce</strong> vpravo dole.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -2541,7 +2541,7 @@
               "color": "yellow"
             }
           ],
-          "next": "Dokončit ✓"
+          "next": "Dokončit"
         },
         {
           "id": "d-hotovo",
@@ -2552,7 +2552,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Umíte se prokliknout z IC Office <strong>přímo do katalogu Inter Cars</strong> pro konkrétní vozidlo.<br><br>Tip: ze zakázky je to ještě rychlejší — menu zakázky → <strong>Objednat díly IC</strong>.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -2960,7 +2960,7 @@
               "color": "yellow"
             }
           ],
-          "next": "Dokončit ✓"
+          "next": "Dokončit"
         },
         {
           "id": "p-hotovo",
@@ -2971,7 +2971,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Umíte <strong>prodat zboží ze skladu</strong> bez zakládání zakázky a <strong>vést pokladní knihu</strong>.<br><br>prodej → pokladna → doklad nebo faktura → export pro účetní.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -3394,7 +3394,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Umíte <strong>založit sklad</strong> a <strong>naskladnit zboží</strong>.<br><br>V zakázce teď u <strong>Přidat materiál</strong> stačí pár písmen a díl vyberete ze skladu.<br><br>Tip: <strong>dodací list Inter Cars</strong> jde naskladnit hromadně importem.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -3520,7 +3520,7 @@
             "#btnReport"
           ],
           "label": "Report → START",
-          "next": "Dokončit ✓"
+          "next": "Dokončit"
         },
         {
           "id": "v-hotovo",
@@ -3531,7 +3531,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Umíte vytvořit <strong>report o vozidle podle VIN</strong> — základní data, historie km, odcizení i tržní hodnotu.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -3819,7 +3819,7 @@
               "when": "visible"
             }
           ],
-          "next": "Dokončit ✓"
+          "next": "Dokončit"
         },
         {
           "id": "m-hotovo",
@@ -3830,7 +3830,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "<strong>Můj servis</strong> teď hlídá termíny za vás.<br><br>termín → upozornění předem → dokumenty u záznamu → listiny v Dokumentech<br><br>Upozornění je <strong>informativní</strong> a řídí se jen tím, co si zadáte.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -4122,7 +4122,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Faktura je opravená a <strong>číselná řada sedí</strong>.<br><br>zrušit → uvolněné číslo → vystavit znovu → vrátit číslování",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -4406,7 +4406,7 @@
             "input[name='_reset']"
           ],
           "label": "Nad exporty je filtr období",
-          "next": "Dokončit ✓"
+          "next": "Dokončit"
         },
         {
           "id": "r-hotovo",
@@ -4417,7 +4417,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Víte, kde jsou čísla o vašem servisu.<br><br>tržby a <strong>marže</strong> → mechanici → <strong>faktury po splatnosti</strong> a <strong>zakázky k fakturaci</strong> → export pro účetní",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -4678,7 +4678,7 @@
               "color": "yellow"
             }
           ],
-          "next": "Dokončit ✓"
+          "next": "Dokončit"
         },
         {
           "id": "n-hotovo",
@@ -4689,7 +4689,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Základní nastavení je hotové!<br><br>firma → fakturace → ceník práce → popisy → upozornění<br><br>Detaily doladíte ve scénáři <strong>Pokročilé nastavení</strong>.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     },
@@ -4935,7 +4935,7 @@
             "a[href='/import/customers']"
           ],
           "label": "Import a export",
-          "next": "Dokončit ✓"
+          "next": "Dokončit"
         },
         {
           "id": "a-hotovo",
@@ -4946,7 +4946,7 @@
           "title": "Hotovo!",
           "kratce": "<strong>Hotovo!</strong>",
           "text": "Prošli jste <strong>pokročilé nastavení</strong>.<br><br>podúčty → slevy a marže → šablony → moduly → import a export<br><br>Vracejte se sem, kdykoli něco začne chybět.",
-          "next": "Zavřít ✓"
+          "next": "Zavřít"
         }
       ]
     }

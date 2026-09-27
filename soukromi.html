@@ -23,7 +23,10 @@ body.at-web>main{flex:1 0 auto}
 .icop-kod{margin-block:var(--at-space-4)}
 .icop-kod .at-kod-obrazovky__kod{font-size:var(--at-font-size-h3)}
 .icop-clanek .at-hlaseni{margin-block:var(--at-space-6)}
-.icop-clanek .at-hlaseni__nadpis{margin:0;padding:0;border:0}</style></head>
+.icop-clanek .at-hlaseni__nadpis{margin:0;padding:0;border:0}
+.icop-clanek>.icop-ukazka{max-inline-size:none;margin:var(--at-space-6) 0 0}
+.icop-ukazka img{display:block;max-inline-size:100%;block-size:auto;border:var(--at-border-rule) solid var(--at-rule-strong)}
+.icop-ukazka figcaption{margin-top:var(--at-space-2);font-size:var(--at-font-size-small);color:var(--at-muted)}</style></head>
 <body class="at-web">
 <a class="at-skip-link" href="#obsah">Přeskočit na obsah</a>
 <header class="at-web-hlavicka"><div class="at-web-hlavicka__vnitrek">
@@ -58,41 +61,17 @@ body.at-web>main{flex:1 0 auto}
 </ul>
 <p>Obsah formulářů IC Office, údaje zákazníků, VIN, SPZ ani fakturační údaje doplněk neukládá. Při zobrazeném kroku pouze ověřuje, zda jsou označená pole vyplněná, aby mohl odemknout pokračování. Kontrola prvků nečte hodnoty polí — jen zjišťuje, jestli prvek na stránce existuje.</p>
 <h2>Prezentace (ukázkový režim)</h2>
-<p>Od verze 2.19.0 umí průvodce <strong>předvést scénář sám</strong> — pomalu vypisuje ukázkové</p>
-<p>údaje a kliká za vás. Je to jediné místo, kde doplněk do IC Office <strong>zapisuje</strong>;</p>
-<p>ve všech ostatních režimech jen ukazuje, kam kliknout.</p>
+<p>Od verze 2.19.0 umí průvodce <strong>předvést scénář sám</strong> — pomalu vypisuje ukázkové údaje a kliká za vás. Je to jediné místo, kde doplněk do IC Office <strong>zapisuje</strong>; ve všech ostatních režimech jen ukazuje, kam kliknout.</p>
 <ul>
-<li>Spustí se <strong>jedině vaším potvrzením</strong> ve varovném okně, které předem říká,</li>
-</ul>
-<p>  co vznikne. Sama od sebe se nespustí nikdy — běží jen v té kartě, kde jste ji</p>
-<p>  potvrdili, a do jiných karet ani na jiný počítač se nepřenáší.</p>
-<ul>
-<li>Běží <strong>ve vaší přihlášené relaci na ic-office.eu</strong>, takže vytvořené záznamy</li>
-</ul>
-<p>  jsou vaše a zůstávají ve vašem účtu. Nikam se neodesílají.</p>
-<ul>
-<li>Zapisuje <strong>jen vymyšlená ukázková data</strong> ze souboru <code>src/content/tours.js</code></li>
-</ul>
-<p>  (klient „Tomáš Mourek (UKÁZKA)"). Žádné údaje vašich skutečných klientů nečte</p>
-<p>  ani nepoužívá. Co si vyplníte sami, prezentace nepřepisuje.</p>
-<ul>
+<li>Spustí se <strong>jedině vaším potvrzením</strong> ve varovném okně, které předem říká, co vznikne. Sama od sebe se nespustí nikdy — běží jen v té kartě, kde jste ji potvrdili, a do jiných karet ani na jiný počítač se nepřenáší.</li>
+<li>Běží <strong>ve vaší přihlášené relaci na ic-office.eu</strong>, takže vytvořené záznamy jsou vaše a zůstávají ve vašem účtu. Nikam se neodesílají.</li>
+<li>Zapisuje <strong>jen vymyšlená ukázková data</strong> ze souboru <code>src/content/tours.js</code> (klient „Tomáš Mourek (UKÁZKA)"). Žádné údaje vašich skutečných klientů nečte ani nepoužívá. Co si vyplníte sami, prezentace nepřepisuje.</li>
 <li>Vytvořené záznamy mají v názvu <strong>UKÁZKA</strong>, abyste je poznali a mohli smazat.</li>
-<li>Zakázkový list <strong>podepíše křížkem</strong>. Fakturu <strong>nevystaví</strong> — okno fakturace</li>
+<li>Zakázkový list <strong>podepíše křížkem</strong>. Fakturu <strong>nevystaví</strong> — okno fakturace jen ukáže.</li>
+<li>Telefon a e-mail ukázkového klienta jsou <strong>služební kontakt IC Office</strong>, takže případná automatická SMS nebo e-mail o stavu zakázky přijde jemu, ne cizímu člověku.</li>
+<li>Volitelné <strong>předčítání kroku nahlas</strong> používá hlas zabudovaný v prohlížeči. Text se nikam neodesílá a funguje i bez internetu.</li>
+<li>Kdykoli ji zastavíte tlačítkem <strong>Konec</strong> — v kartě průvodce, v jeho nabídce i v rozcestníku. Skrytí průvodce (<strong>×</strong>) ji ukončí taky.</li>
 </ul>
-<p>  jen ukáže.</p>
-<ul>
-<li>Telefon a e-mail ukázkového klienta jsou <strong>služební kontakt IC Office</strong>, takže</li>
-</ul>
-<p>  případná automatická SMS nebo e-mail o stavu zakázky přijde jemu, ne cizímu</p>
-<p>  člověku.</p>
-<ul>
-<li>Volitelné <strong>předčítání kroku nahlas</strong> používá hlas zabudovaný v prohlížeči.</li>
-</ul>
-<p>  Text se nikam neodesílá a funguje i bez internetu.</p>
-<ul>
-<li>Kdykoli ji zastavíte tlačítkem <strong>Konec</strong> — v kartě průvodce, v jeho nabídce</li>
-</ul>
-<p>  i v rozcestníku. Skrytí průvodce (<strong>×</strong>) ji ukončí taky.</p>
 <h2>Pomoc od hotline</h2>
 <p>Panel <strong>Pomoc</strong> zobrazuje kód kroku a kontakty a umí připravit text pro hotlinku (kód kroku, název scénáře a kroku, adresa stránky bez parametrů dotazu, verze doplňku, řetězec prohlížeče). Tento text se buď zkopíruje do schránky, nebo předvyplní do vašeho poštovního klienta.</p>
 <p>Součástí je i <strong>kontakt na vás</strong>. Při prvním spuštění se průvodce zeptá na <strong>zákaznické číslo Inter Cars</strong> a na volbu <strong>obchodního specialisty</strong> (ze seznamu v obsahu doplňku; volba „Zatím nevím" je v pořádku). Obojí zůstává jen ve vašem prohlížeči.</p>
@@ -125,9 +104,10 @@ body.at-web>main{flex:1 0 auto}
 </article></main>
 <footer class="at-paticka">
 <div class="at-paticka__tiraz">
-<p class="at-paticka__produkt">IC Office Tutoriál 2.56.0</p>
+<p class="at-paticka__produkt">IC Office Tutoriál 2.57.0</p>
 <p>Doplněk do prohlížeče k systému <a href="https://ic-office.eu">IC Office</a>.</p>
 <p>Provozovatel: [doplnit: provozovatel], IČO [doplnit: IČO].</p>
+<p>Podmínky použití: [doplnit: odkaz na podmínky].</p>
 </div>
 <nav class="at-paticka__odkazy" aria-label="Dokumenty"><ul>
 <li><a href="soukromi.html">Ochrana soukromí</a></li>
